@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airen Pixel | Video Editing & Motion Graphics</title>
+    
+    <!-- Google Fonts: Quicksand for body, Bebas Neue/Anton as Lovelo/Bricksans alternatives -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="./assets/APFXLogo.png" alt="Airen Pixel Logo" class="logo-img">
+            </a>
+            <div class="nav-links">
+                <a href="#works">WORKS</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">AIREN PIXEL</h1>
+            
+            <div class="hero-image-wrapper">
+                <div class="background-circle"></div>
+                <img src="./assets/main.png" alt="Ajay Kumar" class="hero-main-img">
+                
+                <!-- Floating Icons -->
+                <img src="./assets/picsart-icon.webp" alt="Picsart" class="floating-icon icon-picsart">
+                <img src="./assets/capcut-3d-icon.webp" alt="CapCut" class="floating-icon icon-capcut">
+                <img src="./assets/Alight-Motion-Logo.webp" alt="Alight Motion" class="floating-icon icon-alight">
+            </div>
+
+            <div class="hero-cta">
+                <a href="#works" class="liquid-btn">SHOWREEL</a>
+                <a href="#contact" class="liquid-btn">HIRE ME</a>
+            </div>
+        </div>
+
+        <!-- Marquee -->
+        <div class="marquee-container film-border">
+            <div class="marquee-content">
+                <span>AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; </span>
+                <span>AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Showreel Section -->
+    <section class="showreel-section section-padding" id="works">
+        <div class="container">
+            <div class="section-title-wrapper">
+                <h2 class="section-badge">SHOWREEL</h2>
+            </div>
+            
+            <div class="showreel-grid">
+                <!-- Video 1 -->
+                <div class="video-card film-border-frame">
+                    <video autoplay loop muted playsinline class="showreel-video">
+                        <source src="./assets/videos/bike-edit.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h3>BIKE EDIT</h3>
+                    </div>
+                </div>
+                
+                <div class="showreel-text text-right">
+                    <h3>SPEED. ENERGY. IMPACT.</h3>
+                    <p>DYNAMIC SPEED RAMPS AND CINEMATIC TRANSITIONS CRAFTED TO MAKE EVERY FRAME FEEL ALIVE.</p>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card film-border-frame">
+                    <video autoplay loop muted playsinline class="showreel-video">
+                        <source src="./assets/videos/fast-cut.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h3>FAST CUT</h3>
+                    </div>
+                </div>
+
+                <div class="showreel-text text-left">
+                    <h3>MOMENTS MADE LEGENDARY</h3>
+                    <p>CINEMATIC STORYTELLING AND IMPACTFUL EDITS THAT TURN HIGHLIGHTS INTO UNFORGETTABLE MEMORIES.</p>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card film-border-frame">
+                    <video autoplay loop muted playsinline class="showreel-video">
+                        <source src="./assets/videos/god-mode.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <h3>GOD MODE</h3>
+                    </div>
+                </div>
+
+                <div class="showreel-text text-right">
+                    <h3>WHERE MUSIC MEETS MOTION</h3>
+                    <p>CREATIVE LYRIC ANIMATIONS AND MOTION DESIGN THAT BRING SOUND, RHYTHM, AND VISUALS TOGETHER.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Works Horizontal Scroll -->
+    <section class="featured-works-section" id="featured">
+        <div class="horizontal-scroll-wrapper">
+            <div class="horizontal-scroll-content">
+                <!-- Intro Title Panel -->
+                <div class="h-panel title-panel">
+                    <div class="featured-bg" style="background-image: url('./assets/time-line.png');">
+                        <div class="featured-text-wrapper">
+                            <h2 class="featured-title">FEATURED<br>WORKS</h2>
+                            <h3 class="vertical-text">TRENDING REEL</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reel Panels -->
+                <div class="h-panel video-panel film-border-frame-vertical">
+                    <video autoplay loop muted playsinline class="h-video">
+                        <source src="./assets/videos/trending-reel.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="h-panel video-panel film-border-frame-vertical">
+                    <video autoplay loop muted playsinline class="h-video">
+                        <source src="./assets/videos/vlog.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="h-panel video-panel film-border-frame-vertical">
+                    <video autoplay loop muted playsinline class="h-video">
+                        <source src="./assets/videos/batmiton.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="h-panel video-panel film-border-frame-vertical">
+                    <video autoplay loop muted playsinline class="h-video">
+                        <source src="./assets/videos/kho-kho-team.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="h-panel video-panel film-border-frame-vertical">
+                    <video autoplay loop muted playsinline class="h-video">
+                        <source src="./assets/videos/motion-graphics.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <!-- Film Marquee -->
+        <div class="marquee-container film-border">
+            <div class="marquee-content empty-film"></div>
+        </div>
+    </section>
+
+    <!-- Photo Designs -->
+    <section class="photo-designs-section section-padding">
+        <div class="container">
+            <div class="section-title-wrapper text-center">
+                <h2 class="section-badge">PHOTO DESIGNS</h2>
+            </div>
+            
+            <div class="photo-grid">
+                <div class="photo-card tilted film-border-frame">
+                    <img src="./assets/Insta-Thambnail.jpg" alt="Insta Thumbnail">
+                </div>
+                <div class="photo-text">
+                    <h3>DESIGNED TO GET CLICKS</h3>
+                    <p>ATTENTION-GRABBING THUMBNAILS AND SOCIAL MEDIA CREATIVES BUILT TO STAND OUT INSTANTLY.</p>
+                </div>
+                <div class="photo-text text-left">
+                    <h3>STORIES TOLD THROUGH DESIGN</h3>
+                    <p>LARGE-SCALE VISUAL COMPOSITIONS DESIGNED TO SHOWCASE PEOPLE, ACHIEVEMENTS, AND MEMORABLE MOMENTS.</p>
+                </div>
+                <div class="photo-card film-border-frame-vertical">
+                    <img src="./assets/College-Group-Photo.jpg" alt="College Group Photo">
+                </div>
+                <div class="photo-card tilted film-border-frame-vertical">
+                    <img src="./assets/Greeting.jpg" alt="Greeting">
+                </div>
+                <div class="photo-text text-right">
+                    <h3>MORE THAN JUST A GREETING</h3>
+                    <p>CUSTOM-DESIGNED POSTERS THAT TURN SPECIAL OCCASIONS INTO MEMORABLE VISUAL EXPERIENCES.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Film Marquee -->
+        <div class="marquee-container film-border">
+            <div class="marquee-content empty-film"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section section-padding overlay-bg">
+        <div class="container">
+            <div class="services-content">
+                <h2 class="services-title text-center">SERVICES</h2>
+                <div class="services-btn-group">
+                    <div class="service-pill liquid-btn">VIDEO EDITING</div>
+                    <div class="service-pill liquid-btn">MOTION GRAPHICS</div>
+                    <div class="service-pill liquid-btn">PHOTO EDITING</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container about-grid">
+            <div class="about-image-wrapper">
+                <div class="section-badge tilt-badge">ABOUT ME</div>
+                <div class="profile-circle">
+                    <img src="./assets/main.png" alt="Ajay Kumar" class="profile-img">
+                </div>
+            </div>
+            <div class="about-text-content">
+                <p>HI, I'M AJAY KUMAR,</p>
+                <p>THE CREATIVE MIND BEHIND AIREN PIXEL.</p>
+                <p>I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION AND ENGAGE THEIR AUDIENCE.</p>
+                
+                <h3 class="section-badge small-badge mt-4">TOOL STACK</h3>
+                <div class="tool-icons">
+                    <img src="./assets/capcut-hero.webp" alt="CapCut">
+                    <img src="./assets/alight-motion-hero.webp" alt="Alight Motion">
+                    <img src="./assets/picsart-icon.webp" alt="Picsart">
+                    <img src="./assets/snapseed-icon.webp" alt="Snapseed">
+                </div>
+            </div>
+        </div>
+        <!-- Film Marquee -->
+        <div class="marquee-container film-border">
+            <div class="marquee-content empty-film"></div>
+        </div>
+    </section>
+
+    <!-- Stats & Testimonial Section -->
+    <section class="stats-testimonial-section section-padding overlay-bg" id="testimonials">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h2 class="stat-number" data-target="40">0</h2><span>+</span>
+                    <p>HAPPY CLIENTS</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-number" data-target="2">0</h2><span>M+</span>
+                    <p>VIEWS GENERATED</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-number" data-target="3">0</h2><span>+</span>
+                    <p>YEARS EXPERIENCE</p>
+                </div>
+            </div>
+            
+            <!-- Sticky Testimonials mimicking Reflux -->
+            <div class="testimonial-container">
+                <div class="testimonial-bg-text">
+                    <h1>KIND WORDS</h1>
+                </div>
+                
+                <div class="testimonial-cards-wrapper">
+                    <div class="section-badge tilt-badge-left testimonial-badge">TESTIMONIAL</div>
+                    
+                    <div class="testimonial-card card-1">
+                        <div class="quote-icon"></div>
+                        <p class="t-quote">NICE WORK HIGHLY RECOMMENDED!</p>
+                        <p class="t-author">~ CLIENT</p>
+                    </div>
+                    <div class="testimonial-card card-2">
+                        <div class="quote-icon"></div>
+                        <p class="t-quote">AMAZING EDITS, EXCEEDED MY EXPECTATIONS!</p>
+                        <p class="t-author">~ CLIENT</p>
+                    </div>
+                    <div class="testimonial-card card-3">
+                        <div class="quote-icon"></div>
+                        <p class="t-quote">VERY PROFESSIONAL AND CREATIVE. WILL HIRE AGAIN!</p>
+                        <p class="t-author">~ CLIENT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-left">
+                    <h2 class="section-badge tilt-badge-left">CONTACT</h2>
+                    <p class="contact-desc">WHETHER YOU'RE A CREATOR, BRAND, OR BUSINESS, I'M HERE TO TRANSFORM YOUR IDEAS INTO ENGAGING VISUAL CONTENT THROUGH HIGH-RETENTION EDITING, PHOTO DESIGNS AND MOTION GRAPHICS.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-circle">IG</a>
+                        <a href="#" class="social-circle">WA</a>
+                        <a href="#" class="social-circle">EM</a>
+                        <a href="#" class="social-circle">PH</a>
+                    </div>
+                </div>
+                <div class="contact-right film-border-frame-vertical">
+                    <!-- Navigates to WhatsApp -->
+                    <form class="contact-form" onsubmit="event.preventDefault(); window.open('https://wa.me/919876543210?text=Hi%20Ajay,%20I%20want%20to%20hire%20you%20for%20a%20project.', '_blank');">
+                        <div class="input-group">
+                            <input type="text" placeholder="YOUR NAME" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" placeholder="YOUR PHONE NUMBER" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="YOUR EMAIL" required>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="YOUR MESSAGE" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="liquid-btn submit-btn">SUBMIT MESSAGE</button>
+                        <p class="text-center text-sm mt-2">Have a project in mind? Let's talk</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer overlay-bg">
+        <div class="container footer-content">
+            <div class="footer-top">
+                <div class="footer-left">
+                    <h1>LET'S TELL<br>YOUR STORY<br>VISUALLY</h1>
+                    <div class="social-icons">
+                        <a href="#" class="social-circle">IG</a>
+                        <a href="#" class="social-circle">WA</a>
+                        <a href="#" class="social-circle">EM</a>
+                        <a href="#" class="social-circle">PH</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <p>Every project starts with an idea. Let's turn yours into something memorable, impactful, and worth sharing</p>
+                    <a href="#contact" class="liquid-btn footer-btn">LET'S WORK TOGETHER</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#home">HOME</a>
+                    <a href="#contact">CONTACT</a>
+                    <a href="#works">WORKS</a>
+                    <a href="#about">ABOUT</a>
+                </div>
+                <p>&copy; 2026 AIREN PIXEL. ALL RIGHTS RESERVED.</p>
+                <p class="text-sm">Designed & Developed By Balaji</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
