@@ -156,12 +156,12 @@ export default function Hero() {
   };
 
   return (
-    <header className="hero-section relative min-h-[95vh] md:min-h-screen w-full flex flex-col justify-center items-center overflow-x-hidden pt-12 md:pt-16 pb-16 md:pb-24" id="home" ref={containerRef}>
+    <header className="hero-section relative w-full flex flex-col justify-center items-center pt-8 md:pt-12 pb-0" id="home" ref={containerRef}>
       <Navbar />
 
-      <div className="hero-content relative z-10 flex flex-col items-center mt-0 h-full justify-center w-full flex-1 mb-24 md:mb-40">
+      <div className="hero-content relative z-10 flex flex-col items-center mt-0 justify-center w-full">
         {/* Image Wrapper - scale responsively based on viewport height, carefully bounded so it doesn't clip */}
-        <div className="hero-image-wrapper relative w-[85vw] sm:w-[70vw] md:w-auto h-auto md:h-[80vh] max-w-[560px] md:max-w-none max-h-[850px] aspect-[560/720] mx-auto z-10 mt-12 md:mt-12">
+        <div className="hero-image-wrapper relative w-[90vw] sm:w-[75vw] md:w-auto h-auto md:h-[85vh] max-w-[600px] md:max-w-none max-h-[950px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
           
           {/* Background Watermark and Subtitle Group - pinned EXACTLY to the center of the image wrapper */}
           <div className="hero-title-group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-max pointer-events-none select-none">
