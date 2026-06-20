@@ -68,33 +68,43 @@ a {
 .tilt-badge-left { transform: rotate(3deg); }
 .small-badge { font-size: 1.2rem; padding: 0.3rem 1rem; }
 
-/* === NAVIGATION === */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(93, 58, 47, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    padding: 1rem 0;
+/* === NAVIGATION — Inside Hero Only === */
+.navbar.glass-nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 100;
+    /* Very sheer background so the blur does the heavy lifting */
+    background: rgba(60, 32, 22, 0.2); 
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border-radius: 60px;
+    padding: 0.55rem 2.2rem;
     color: white;
+    /* Subtle outer border */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4), /* Soft drop shadow */
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.35), /* Top edge light catch (specular highlight) */
+        inset 0 -1px 2px rgba(0, 0, 0, 0.3); /* Bottom edge shadow */
 }
 
 .nav-container {
-    max-width: 1000px;
-    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 2rem;
+    gap: 2.5rem;
+    padding: 0;
 }
 
 .logo-img {
-    height: 40px;
+    height: 42px;
+    width: 42px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 1px solid rgba(255,255,255,0.4);
+    object-fit: cover;
 }
 
 .nav-links {
@@ -104,66 +114,109 @@ a {
 
 .nav-links a {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Helps text read clearly over glass */
 }
 
 .nav-links a:hover {
-    color: var(--bg-color);
+    color: #f7cdb5;
+    text-shadow: 0 0 15px rgba(247, 205, 181, 0.6);
 }
 
-/* === BUTTONS (APPLE LIQUID STYLE) === */
+/* === BUTTONS — Realistic Apple Liquid Glass === */
 .liquid-btn {
     position: relative;
     display: inline-block;
-    padding: 1rem 2.5rem;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 0.9rem 2.8rem;
     color: white;
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    backdrop-filter: blur(10px);
     z-index: 1;
-    background-color: var(--dark-brown);
+    cursor: pointer;
+    /* Sheer background */
+    background: rgba(60, 32, 22, 0.25);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.3), /* Ambient shadow */
+        inset 0 1.5px 2px rgba(255, 255, 255, 0.4), /* Top edge rim light */
+        inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); /* Bottom edge dark rim */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
+/* Glossy top shine — the Apple liquid glass highlight */
 .liquid-btn::before {
     content: '';
     position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.25) 0%, /* Stronger white at top */
+        rgba(255, 255, 255, 0.05) 35%, /* Fades out quickly */
+        rgba(255, 255, 255, 0) 50%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Sweep shine on hover */
+.liquid-btn::after {
+    content: '';
+    position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-    transform: translateX(-100%);
-    transition: 0.6s;
-    z-index: -1;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%
+    );
+    transition: left 0.6s ease;
+    z-index: 1;
 }
 
 .liquid-btn:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px) scale(1.03);
+    background: rgba(80, 45, 30, 0.3); /* Slightly brighter on hover */
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.45),
+        inset 0 2px 3px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.4);
 }
 
-.liquid-btn:hover::before {
-    transform: translateX(100%);
+.liquid-btn:hover::after {
+    left: 100%;
 }
 
 .liquid-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass variant — hero CTA buttons (can be same as base liquid-btn now) */
+.glass-btn {
+    background: rgba(90, 52, 35, 0.25);
+    backdrop-filter: blur(20px) saturate(1.6);
+    -webkit-backdrop-filter: blur(20px) saturate(1.6);
 }
 
 /* === FILM REEL EFFECTS === */
 .film-border {
-    background-color: #111;
+    background-color: #1a1008;
     position: relative;
-    padding: 10px 0;
+    padding: 12px 0;
     overflow: hidden;
     color: white;
 }
@@ -173,12 +226,18 @@ a {
     position: absolute;
     left: 0;
     right: 0;
-    height: 8px;
-    background-image: repeating-linear-gradient(to right, #f7cdb5 0, #f7cdb5 12px, transparent 12px, transparent 20px);
+    height: 10px;
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(247, 205, 181, 0.8) 0,
+        rgba(247, 205, 181, 0.8) 12px,
+        transparent 12px,
+        transparent 22px
+    );
 }
 
-.film-border::before { top: 4px; }
-.film-border::after { bottom: 4px; }
+.film-border::before { top: 3px; }
+.film-border::after { bottom: 3px; }
 
 .film-border-frame {
     position: relative;
@@ -222,76 +281,161 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: 80px;
+    padding-top: 90px;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+/* Large watermark title behind everything */
+.hero-watermark {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13vw;
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.04em;
 }
 
 .hero-content {
     text-align: center;
     position: relative;
     z-index: 2;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hero-title {
-    font-size: 8vw;
-    color: rgba(255,255,255,0.7);
-    -webkit-text-stroke: 2px var(--dark-brown);
+/* Subtitle — "HI, I'M A VIDEO EDITOR" */
+.hero-subtitle {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    white-space: nowrap;
-    opacity: 0.5;
+    top: 2%;
+    right: -22%;
+    z-index: 10;
 }
 
+.hero-subtitle span {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--text-dark);
+    text-transform: uppercase;
+}
+
+/* Image Wrapper — matches reference sizing */
 .hero-image-wrapper {
     position: relative;
-    width: 300px;
-    height: 400px;
-    margin: 0 auto 2rem;
+    width: 340px;
+    height: 460px;
+    margin: 0 auto 1rem;
 }
 
+/* Soft circle behind the person */
 .background-circle {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    height: 350px;
-    background: rgba(93, 58, 47, 0.1);
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle,
+        rgba(190, 145, 115, 0.45) 0%,
+        rgba(190, 145, 115, 0.15) 50%,
+        rgba(190, 145, 115, 0) 70%
+    );
     border-radius: 50%;
     z-index: 0;
 }
 
+/* Main person image */
 .hero-main-img {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: bottom center;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
 }
 
+/* Floating icons — float by default + cursor-reactive */
 .floating-icon {
     position: absolute;
-    width: 60px;
-    z-index: 2;
-    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2));
+    z-index: 3;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+    will-change: transform;
+    /* Default float animation — overridden by JS on cursor */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-.icon-picsart { top: 10%; right: -20%; animation: float 4s ease-in-out infinite; }
-.icon-capcut { bottom: 10%; left: -30%; width: 80px; animation: float 5s ease-in-out infinite reverse; }
-.icon-alight { bottom: 20%; right: -10%; width: 70px; animation: float 4.5s ease-in-out infinite 1s; }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-20px) rotate(10deg); }
+/* Picsart — top right area, matching ref image */
+.icon-picsart {
+    width: 85px;
+    top: 0%;
+    right: -22%;
+    transform: rotate(12deg);
+    animation: floatPicsart 4s ease-in-out infinite;
 }
 
+/* CapCut — left side, matching ref image */
+.icon-capcut {
+    width: 110px;
+    top: 38%;
+    left: -38%;
+    transform: rotate(-15deg);
+    animation: floatCapcut 5s ease-in-out infinite;
+}
+
+/* Alight Motion — right side, matching ref image */
+.icon-alight {
+    width: 95px;
+    top: 48%;
+    right: -30%;
+    transform: rotate(10deg);
+    animation: floatAlight 4.5s ease-in-out infinite;
+}
+
+/* Individual float keyframes for natural feel */
+@keyframes floatPicsart {
+    0%, 100% { transform: rotate(12deg) translate(0, 0); }
+    50% { transform: rotate(15deg) translate(5px, -12px); }
+}
+@keyframes floatCapcut {
+    0%, 100% { transform: rotate(-15deg) translate(0, 0); }
+    50% { transform: rotate(-12deg) translate(-8px, -15px); }
+}
+@keyframes floatAlight {
+    0%, 100% { transform: rotate(10deg) translate(0, 0); }
+    50% { transform: rotate(8deg) translate(6px, -10px); }
+}
+
+/* CTA Buttons */
 .hero-cta {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     justify-content: center;
+    position: relative;
+    z-index: 5;
+    margin-top: -0.5rem;
+}
+
+/* === HORIZONTAL FILM STRIP MARQUEE === */
+.hero-film-strip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.film-strip-inner {
+    width: 100%;
 }
 
 .marquee-container {
@@ -304,17 +448,17 @@ a {
 .marquee-content {
     display: inline-block;
     white-space: nowrap;
-    animation: marquee 20s linear infinite;
+    animation: marquee 18s linear infinite;
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 1.6rem;
+    letter-spacing: 4px;
 }
 
-.marquee-content span { padding-right: 50px; }
+.marquee-content span { padding-right: 40px; }
 
 @keyframes marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-25%); }
 }
 
 .empty-film {
@@ -757,6 +901,8 @@ a {
 }
 
 /* === RESPONSIVE === */
+
+/* Tablet */
 @media (max-width: 992px) {
     .showreel-grid, .photo-grid, .about-grid, .contact-grid {
         grid-template-columns: 1fr;
@@ -788,17 +934,55 @@ a {
     .featured-title {
         font-size: 5rem;
     }
-}
 
-@media (max-width: 768px) {
-    .hero-title {
+    .hero-watermark {
         font-size: 15vw;
     }
+
+    .hero-subtitle {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 1rem;
+    }
+
+    .icon-capcut { left: -18%; }
+    .icon-alight { right: -15%; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-watermark {
+        font-size: 18vw;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.45);
+    }
     
+    .navbar.glass-nav {
+        padding: 0.4rem 1.2rem;
+    }
+
     .nav-links {
         display: none;
     }
     
+    .hero-image-wrapper {
+        width: 260px;
+        height: 360px;
+    }
+
+    .icon-picsart { width: 55px !important; right: -8%; top: 0%; }
+    .icon-capcut { width: 65px !important; left: -12%; }
+    .icon-alight { width: 60px !important; right: -10%; }
+
+    .hero-cta {
+        gap: 1rem;
+    }
+
+    .liquid-btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+    }
+
     .stats-grid {
         flex-direction: column;
         gap: 2rem;
@@ -808,5 +992,26 @@ a {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .hero-watermark {
+        font-size: 22vw;
+    }
+
+    .hero-image-wrapper {
+        width: 220px;
+        height: 300px;
+    }
+
+    .icon-picsart { width: 40px !important; }
+    .icon-capcut { width: 50px !important; }
+    .icon-alight { width: 45px !important; }
+
+    .background-circle {
+        width: 250px;
+        height: 250px;
     }
 }

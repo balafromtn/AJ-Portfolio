@@ -1,0 +1,69 @@
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+export default function Stats() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+    
+    const numbers = containerRef.current.querySelectorAll('.stat-number');
+    
+    numbers.forEach(num => {
+      ScrollTrigger.create({
+        trigger: num,
+        start: "top 85%",
+        onEnter: () => {
+          const target = parseInt(num.getAttribute('data-target') || "0");
+          gsap.to(num, {
+            innerHTML: target,
+            duration: 2.5,
+            snap: { innerHTML: 1 },
+            ease: "power2.out"
+          });
+        },
+        once: true
+      });
+    });
+  }, { scope: containerRef });
+
+  return (
+    <section className="stats-testimonial-section pt-24 pb-12 bg-[#111] text-white relative" id="testimonials">
+      <div className="absolute inset-0 bg-[url('/assets/time-line.png')] bg-center bg-cover opacity-20 pointer-events-none"></div>
+      
+      <div className="container mx-auto px-8 max-w-7xl relative z-10" ref={containerRef}>
+        <div className="stats-grid flex flex-col md:flex-row justify-around items-center gap-12 border-b-2 border-white/20 pb-12 mb-16">
+          <div className="stat-item text-center">
+            <div className="flex items-baseline justify-center">
+              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="40">0</h2>
+              <span className="text-[3rem] font-heading">+</span>
+            </div>
+            <p className="tracking-widest font-semibold mt-2">HAPPY CLIENTS</p>
+          </div>
+          <div className="stat-item text-center">
+            <div className="flex items-baseline justify-center">
+              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="2">0</h2>
+              <span className="text-[3rem] font-heading">M+</span>
+            </div>
+            <p className="tracking-widest font-semibold mt-2">VIEWS GENERATED</p>
+          </div>
+          <div className="stat-item text-center">
+            <div className="flex items-baseline justify-center">
+              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="3">0</h2>
+              <span className="text-[3rem] font-heading">+</span>
+            </div>
+            <p className="tracking-widest font-semibold mt-2">YEARS EXPERIENCE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

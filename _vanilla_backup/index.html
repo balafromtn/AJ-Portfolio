@@ -15,46 +15,60 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="./assets/APFXLogo.png" alt="Airen Pixel Logo" class="logo-img">
-            </a>
-            <div class="nav-links">
-                <a href="#works">WORKS</a>
-                <a href="#about">ABOUT</a>
-                <a href="#contact">CONTACT</a>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <header class="hero-section" id="home">
+        <!-- Navbar inside hero only -->
+        <nav class="navbar glass-nav">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <img src="./assets/APFXLogo.png" alt="Airen Pixel Logo" class="logo-img">
+                </a>
+                <div class="nav-links">
+                    <a href="#works">WORKS</a>
+                    <a href="#about">ABOUT</a>
+                    <a href="#contact">CONTACT</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Large watermark title behind everything -->
+        <h1 class="hero-watermark" aria-hidden="true">AIREN PIXEL</h1>
+
         <div class="hero-content">
-            <h1 class="hero-title">AIREN PIXEL</h1>
-            
-            <div class="hero-image-wrapper">
-                <div class="background-circle"></div>
-                <img src="./assets/main.png" alt="Ajay Kumar" class="hero-main-img">
-                
-                <!-- Floating Icons -->
-                <img src="./assets/picsart-icon.webp" alt="Picsart" class="floating-icon icon-picsart">
-                <img src="./assets/capcut-3d-icon.webp" alt="CapCut" class="floating-icon icon-capcut">
-                <img src="./assets/Alight-Motion-Logo.webp" alt="Alight Motion" class="floating-icon icon-alight">
+            <!-- Subtitle text -->
+            <div class="hero-subtitle">
+                <span>HI, I'M A VIDEO EDITOR</span>
             </div>
 
+            <div class="hero-image-wrapper">
+                <!-- Soft circle behind the person -->
+                <div class="background-circle"></div>
+
+                <!-- Main person image -->
+                <img src="./assets/main.png" alt="Ajay Kumar" class="hero-main-img">
+
+                <!-- Floating Icons — float + cursor-reactive -->
+                <img src="./assets/picsart-icon.webp" alt="Picsart" class="floating-icon icon-picsart" data-speed="3">
+                <img src="./assets/capcut-hero.webp" alt="CapCut" class="floating-icon icon-capcut" data-speed="5">
+                <img src="./assets/alight-motion-hero.webp" alt="Alight Motion" class="floating-icon icon-alight" data-speed="4">
+            </div>
+
+            <!-- CTA Buttons — Liquid Glass -->
             <div class="hero-cta">
-                <a href="#works" class="liquid-btn">SHOWREEL</a>
-                <a href="#contact" class="liquid-btn">HIRE ME</a>
+                <a href="#works" class="liquid-btn glass-btn">SHOWREEL</a>
+                <a href="#contact" class="liquid-btn glass-btn">HIRE ME</a>
             </div>
         </div>
 
-        <!-- Marquee -->
-        <div class="marquee-container film-border">
-            <div class="marquee-content">
-                <span>AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; </span>
-                <span>AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; AIREN PIXEL &bull; VIDEO EDITING &bull; </span>
+        <!-- Horizontal Film Reel Marquee -->
+        <div class="hero-film-strip">
+            <div class="film-strip-inner film-border">
+                <div class="marquee-content">
+                    <span>AIREN PIXEL &bull; VIDEO EDITING &bull; MOTION GRAPHICS &bull; </span>
+                    <span>AIREN PIXEL &bull; VIDEO EDITING &bull; MOTION GRAPHICS &bull; </span>
+                    <span>AIREN PIXEL &bull; VIDEO EDITING &bull; MOTION GRAPHICS &bull; </span>
+                    <span>AIREN PIXEL &bull; VIDEO EDITING &bull; MOTION GRAPHICS &bull; </span>
+                </div>
             </div>
         </div>
     </header>

@@ -61,21 +61,71 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Parallax effect on Hero floating icons
+// Floating icons — float by default (CSS animation), follow cursor when hovering hero
 const heroSection = document.querySelector('.hero-section');
 const floatingIcons = document.querySelectorAll('.floating-icon');
 
+// Base rotations to preserve icon tilt
+const iconBaseRotations = {
+    'icon-picsart': 12,
+    'icon-capcut': -15,
+    'icon-alight': 10
+};
+
+function getBaseRotation(icon) {
+    for (const [cls, rot] of Object.entries(iconBaseRotations)) {
+        if (icon.classList.contains(cls)) return rot;
+    }
+    return 0;
+}
+
 if (heroSection) {
+    // On cursor enter — pause CSS float, let GSAP control
+    heroSection.addEventListener('mouseenter', () => {
+        floatingIcons.forEach(icon => {
+            icon.style.animationPlayState = 'paused';
+        });
+    });
+
+    // On cursor move — move icons based on cursor position
     heroSection.addEventListener('mousemove', (e) => {
-        const x = (window.innerWidth / 2 - e.pageX) / 25;
-        const y = (window.innerHeight / 2 - e.pageY) / 25;
+        const rect = heroSection.getBoundingClientRect();
+        const normX = (e.clientX - rect.left) / rect.width * 2 - 1;
+        const normY = (e.clientY - rect.top) / rect.height * 2 - 1;
 
         floatingIcons.forEach(icon => {
+            const speed = parseFloat(icon.getAttribute('data-speed')) || 3;
+            const moveX = normX * speed * 15;
+            const moveY = normY * speed * 10;
+            const baseRot = getBaseRotation(icon);
+            const tilt = normX * speed * 3;
+
             gsap.to(icon, {
-                x: x,
-                y: y,
+                x: moveX,
+                y: moveY,
+                rotation: baseRot + tilt,
+                duration: 0.6,
+                ease: "power2.out",
+                overwrite: "auto"
+            });
+        });
+    });
+
+    // On cursor leave — spring back and resume CSS float
+    heroSection.addEventListener('mouseleave', () => {
+        floatingIcons.forEach(icon => {
+            const baseRot = getBaseRotation(icon);
+            gsap.to(icon, {
+                x: 0,
+                y: 0,
+                rotation: baseRot,
                 duration: 1,
-                ease: "power1.out"
+                ease: "elastic.out(1, 0.4)",
+                overwrite: "auto",
+                onComplete: () => {
+                    // Resume CSS float animation
+                    icon.style.animationPlayState = 'running';
+                }
             });
         });
     });
