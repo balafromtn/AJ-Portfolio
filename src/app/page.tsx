@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
 import Showreel from "@/components/Showreel";
 import FeaturedWorks from "@/components/FeaturedWorks";
 import PhotoDesigns from "@/components/PhotoDesigns";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Marquee />
       <Showreel />
       <FeaturedWorks />
       <PhotoDesigns />

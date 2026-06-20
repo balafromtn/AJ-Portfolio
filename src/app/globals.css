@@ -94,6 +94,37 @@ body {
   z-index: -1;
 }
 
+/* Liquid sweep effect on hover for navbar */
+.glass-nav::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+  );
+  transition: left 0.8s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+.glass-nav:hover::after {
+  left: 100%;
+}
+
+/* Mild Waving Effect for Icons */
+@keyframes iconWave {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+
+.animate-wave-1 { animation: iconWave 5s ease-in-out infinite; }
+.animate-wave-2 { animation: iconWave 6.5s ease-in-out infinite 1s; }
+.animate-wave-3 { animation: iconWave 7s ease-in-out infinite 0.5s; }
+.animate-wave-4 { animation: iconWave 5.5s ease-in-out infinite 2s; }
+
 .nav-link {
   font-family: var(--font-family-alkatra);
   font-size: 1.25rem;
@@ -220,7 +251,7 @@ body {
 .film-border::after { bottom: 3px; }
 
 .hero-watermark {
-  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.55);
+  -webkit-text-stroke: clamp(1.5px, 0.3vw, 3px) var(--dark-brown);
 }
 
 @keyframes marquee {
