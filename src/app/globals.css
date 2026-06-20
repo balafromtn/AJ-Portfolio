@@ -297,3 +297,30 @@ body {
 .film-border-frame-vertical::before { left: 5px; }
 .film-border-frame-vertical::after { right: 5px; }
 
+/* Custom Film Strip specifically for the new Contact section design */
+.contact-film-strip {
+  position: relative;
+  background-color: #1a1008;
+  padding: 0 40px; /* Space for the black film rails on the left and right */
+  border-radius: 8px; /* Optional slight rounding on the outer edge */
+  overflow: hidden;
+}
+
+.contact-film-strip::before,
+.contact-film-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 15px,
+    var(--bg-color) 15px,
+    var(--bg-color) 30px
+  );
+}
+
+.contact-film-strip::before { left: 10px; }
+.contact-film-strip::after { right: 10px; }
