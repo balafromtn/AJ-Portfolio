@@ -37,17 +37,25 @@ export default function Contact() {
             </p>
             
             <div className="social-icons flex gap-4 md:gap-6 justify-center">
-              <Link href="#" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 flex items-center justify-center text-[#2a1610] hover:bg-[#2a1610] hover:text-[#f7cdb5] transition-all transform hover:scale-110 shadow-lg">
-                <FiInstagram className="w-6 h-6 md:w-8 md:h-8" strokeWidth={2.5} />
+              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
+                <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
+                <FiInstagram className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
               </Link>
-              <Link href="#" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 flex items-center justify-center text-[#2a1610] hover:bg-[#2a1610] hover:text-[#f7cdb5] transition-all transform hover:scale-110 shadow-lg">
-                <FaWhatsapp className="w-6 h-6 md:w-8 md:h-8" />
+              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
+                <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
+                <FaWhatsapp className="w-6 h-6 md:w-8 md:h-8 relative z-10" />
               </Link>
-              <Link href="#" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 flex items-center justify-center text-[#2a1610] hover:bg-[#2a1610] hover:text-[#f7cdb5] transition-all transform hover:scale-110 shadow-lg">
-                <FiMail className="w-6 h-6 md:w-8 md:h-8" strokeWidth={2.5} />
+              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
+                <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
+                <FiMail className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
               </Link>
-              <Link href="#" className="w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 flex items-center justify-center text-[#2a1610] hover:bg-[#2a1610] hover:text-[#f7cdb5] transition-all transform hover:scale-110 shadow-lg">
-                <FiPhoneCall className="w-6 h-6 md:w-8 md:h-8" strokeWidth={2.5} />
+              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
+                <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
+                <FiPhoneCall className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
               </Link>
             </div>
           </div>

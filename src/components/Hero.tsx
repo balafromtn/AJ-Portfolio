@@ -163,6 +163,9 @@ export default function Hero() {
         {/* Image Wrapper - scale responsively based on viewport height, carefully bounded so it doesn't clip */}
         <div className="hero-image-wrapper relative w-[95vw] sm:w-[85vw] md:w-auto h-auto md:h-[92vh] max-w-[650px] md:max-w-none max-h-[1050px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
           
+          {/* Large crisp translucent brown circle behind everything */}
+          <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75vw] h-[75vw] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] rounded-full bg-[#8c5946]/15 z-[-1] pointer-events-none"></div>
+
           {/* Background Watermark and Subtitle Group - pinned EXACTLY to the center of the image wrapper */}
           <div className="hero-title-group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-max pointer-events-none select-none">
             {/* Subtitle — "HI, I'M A VIDEO EDITOR" (Alkatra font) positioned absolute to the top-center of AIREN PIXEL */}
@@ -174,8 +177,6 @@ export default function Hero() {
               AIREN PIXEL
             </h1>
           </div>
-
-          <div className="background-circle absolute top-[65%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] md:w-[400px] md:h-[400px] rounded-full bg-[radial-gradient(circle,rgba(190,145,115,0.45)_0%,rgba(190,145,115,0.15)_50%,transparent_70%)] z-0 pointer-events-none"></div>
 
           <Image
             src="/assets/main.png"
