@@ -156,17 +156,17 @@ export default function Hero() {
   };
 
   return (
-    <header className="hero-section relative w-full flex flex-col justify-center items-center pt-8 md:pt-12 pb-0" id="home" ref={containerRef}>
+    <header className="hero-section relative w-full flex flex-col justify-center items-center pt-2 md:pt-4 pb-0" id="home" ref={containerRef}>
       <Navbar />
 
       <div className="hero-content relative z-10 flex flex-col items-center mt-0 justify-center w-full">
         {/* Image Wrapper - scale responsively based on viewport height, carefully bounded so it doesn't clip */}
-        <div className="hero-image-wrapper relative w-[90vw] sm:w-[75vw] md:w-auto h-auto md:h-[85vh] max-w-[600px] md:max-w-none max-h-[950px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
+        <div className="hero-image-wrapper relative w-[95vw] sm:w-[85vw] md:w-auto h-auto md:h-[92vh] max-w-[650px] md:max-w-none max-h-[1050px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
           
           {/* Background Watermark and Subtitle Group - pinned EXACTLY to the center of the image wrapper */}
           <div className="hero-title-group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-max pointer-events-none select-none">
             {/* Subtitle — "HI, I'M A VIDEO EDITOR" (Alkatra font) positioned absolute to the top-center of AIREN PIXEL */}
-            <div className="absolute -top-[12%] md:-top-[15%] left-1/2 -translate-x-1/2 whitespace-nowrap z-10 w-max text-center">
+            <div className="absolute -top-[16%] md:-top-[20%] left-1/2 -translate-x-1/2 whitespace-nowrap z-10 w-max text-center">
               <span className="font-alkatra text-[#5d3a2f] text-sm sm:text-xl md:text-3xl font-bold tracking-[0.1em] sm:tracking-[0.2em] drop-shadow-sm">{typedText}<span className="animate-pulse border-r-[2px] sm:border-r-[3px] border-[#5d3a2f] ml-[2px]"></span></span>
             </div>
             {/* Large watermark title behind everything (Bangers font) */}
@@ -180,14 +180,14 @@ export default function Hero() {
           <Image
             src="/assets/main.png"
             alt="Ajay Kumar"
-            width={560}
-            height={720}
+            width={600}
+            height={770}
             priority
             className="hero-main-img relative z-10 w-full h-full object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] pointer-events-none"
           />
 
           {/* Picsart - top right */}
-          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[80px] md:w-[110px] top-[20%] md:top-[22%] -right-[30%] md:-right-[45%]">
+          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[80px] md:w-[110px] top-[30%] md:top-[35%] -right-[5%] md:-right-[10%]">
             <div className="w-full h-full animate-wave-1">
               <img
                 ref={setIconHoverRef(0)}
@@ -229,7 +229,7 @@ export default function Hero() {
           </div>
           
           {/* CTA Buttons - positioned tightly to the image wrapper */}
-          <div className="hero-cta absolute bottom-[0%] md:bottom-[2%] left-1/2 -translate-x-1/2 flex gap-4 md:gap-8 z-30 w-max">
+          <div className="hero-cta absolute bottom-[6%] md:bottom-[8%] left-1/2 -translate-x-1/2 flex gap-4 md:gap-8 z-30 w-max">
             <Link href="#works" className="liquid-btn glass-btn font-alkatra !font-bold">
               SHOWREEL
             </Link>

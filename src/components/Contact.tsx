@@ -5,16 +5,11 @@ import { FiInstagram, FiMail, FiPhoneCall } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 const FilmRail = () => (
-  <div className="flex w-[30px] md:w-[45px] shrink-0 self-stretch bg-transparent">
-    {/* Outer black edge */}
-    <div className="w-[8px] md:w-[12px] bg-[#1a1008] self-stretch"></div>
-    {/* Transparent holes strip */}
-    <div className="w-[14px] md:w-[21px] bg-transparent self-stretch" style={{
-      backgroundImage: 'repeating-linear-gradient(to bottom, #1a1008 0px, #1a1008 16px, transparent 16px, transparent 32px)'
-    }}></div>
-    {/* Inner black edge */}
-    <div className="w-[8px] md:w-[12px] bg-[#1a1008] self-stretch"></div>
-  </div>
+  <div className="w-[30px] md:w-[45px] shrink-0 self-stretch z-10 relative" style={{
+    backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg width='45' height='35' viewBox='0 0 45 35' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cmask id='holeMask'%3E%3Crect width='45' height='35' fill='white' /%3E%3Crect x='10' y='8' width='25' height='19' rx='4' fill='black' /%3E%3C/mask%3E%3C/defs%3E%3Crect width='45' height='35' fill='%230f0905' mask='url(%23holeMask)' /%3E%3C/svg%3E")`,
+    backgroundSize: '100% 35px',
+    backgroundRepeat: 'repeat-y'
+  }}></div>
 );
 
 export default function Contact() {
@@ -24,20 +19,20 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-section py-24 relative z-10" id="contact">
+    <section className="contact-section relative z-10" id="contact">
       <div className="container mx-auto px-8 max-w-7xl">
-        <div className="contact-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="contact-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch min-h-[95vh]">
           
           {/* LEFT COLUMN */}
-          <div className="contact-left flex flex-col justify-center items-center text-center">
+          <div className="contact-left flex flex-col justify-center items-center text-center py-16 lg:py-24">
             {/* The Badge */}
             <div className="mb-8 md:mb-12 w-full flex justify-center">
                <h2 className="section-badge inline-block bg-[#5d3a2f] text-white px-6 md:px-8 py-2 md:py-3 text-3xl md:text-5xl transform -rotate-2 shadow-[4px_4px_0_rgba(0,0,0,0.3)] md:shadow-[6px_6px_0_rgba(0,0,0,0.3)] font-bangers tracking-widest">
-                 CONTACT
+                  CONTACT
                </h2>
             </div>
             
-            <p className="contact-desc mb-10 md:mb-12 text-lg sm:text-xl md:text-2xl font-bold leading-snug md:leading-relaxed max-w-xl text-white font-alkatra drop-shadow-md tracking-wider">
+            <p className="contact-desc mb-10 md:mb-12 text-lg sm:text-xl md:text-2xl font-bold leading-snug md:leading-relaxed max-w-xl text-white font-alkatra tracking-wider" style={{ textShadow: "0 4px 8px rgba(0,0,0,0.8)" }}>
               WHETHER YOU&apos;RE A CREATOR, BRAND, OR BUSINESS, I&apos;M HERE TO TRANSFORM YOUR IDEAS INTO ENGAGING VISUAL CONTENT THROUGH HIGH-RETENTION EDITING, PHOTO DESIGNS AND MOTION GRAPHICS.
             </p>
             
@@ -58,60 +53,86 @@ export default function Contact() {
           </div>
           
           {/* RIGHT COLUMN */}
-          <div className="contact-right flex justify-center lg:justify-end w-full mt-8 lg:mt-0">
-            <div className="flex w-full max-w-md drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] h-full min-h-[500px]">
+          <div className="contact-right flex justify-center lg:justify-end w-full h-full pb-16 lg:pb-0">
+            <div className="flex w-full max-w-[480px] drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] h-fit">
               
+              {/* Left Film Rail */}
               <FilmRail />
               
-              <form className="contact-form flex-grow bg-[#7d4b3c] p-6 sm:p-8 md:p-10 h-full" onSubmit={handleSubmit}>
+              {/* Center Content Section */}
+              <div className="flex flex-col w-full bg-[#5b3527] relative">
                 
-                <div className="input-group mb-6 md:mb-8">
-                  <input 
-                    type="text" 
-                    placeholder="YOUR NAME" 
-                    required 
-                    className="w-full bg-transparent border-b-2 border-[#3a150e] py-2 md:py-3 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2] placeholder:font-bold placeholder:tracking-widest"
-                  />
+                {/* 1. Top empty filler - 62px aligns to 2 tiles */}
+                <div className="w-full h-[62px] shrink-0 relative z-10"></div>
+                
+                {/* Black bar 1 */}
+                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
+                
+                {/* 2. Contact form wrapper - 544px aligns to exactly 18 tiles! */}
+                <div className="w-full flex items-center justify-center h-[544px] shrink-0 relative z-10">
+                  <form className="contact-form p-6 md:p-8 flex flex-col relative z-10 w-full" onSubmit={handleSubmit}>
+                    
+                    <div className="relative z-10 w-full flex flex-col">
+                      <div className="input-group mb-5 md:mb-6">
+                        <input 
+                          type="text" 
+                          placeholder="YOUR NAME" 
+                          required 
+                          className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
+                        />
+                      </div>
+                      
+                      <div className="input-group mb-5 md:mb-6">
+                        <input 
+                          type="tel" 
+                          placeholder="YOUR PHONE NUMBER" 
+                          required 
+                          className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
+                        />
+                      </div>
+                      
+                      <div className="input-group mb-6 md:mb-8">
+                        <input 
+                          type="email" 
+                          placeholder="YOUR EMAIL" 
+                          required 
+                          className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
+                        />
+                      </div>
+                      
+                      <div className="input-group mb-6">
+                        <textarea 
+                          placeholder="YOUR MESSAGE" 
+                          rows={3} 
+                          required 
+                          className="w-full bg-[#3d2118] border-none rounded-[16px] p-4 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest resize-none shadow-inner"
+                        ></textarea>
+                      </div>
+                      
+                      <div className="flex flex-col items-center mt-4 md:mt-6">
+                        <button type="submit" className="liquid-btn glass-btn w-max font-alkatra font-bold text-base md:text-lg tracking-widest px-8 py-3 rounded-[12px]">
+                          SUBMIT MESSAGE
+                        </button>
+                        <p className="text-[#f9e2d2] text-xs md:text-sm mt-3 md:mt-4 font-bold tracking-wide">
+                          Have a project in mind? Let&apos;s talk
+                        </p>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-                
-                <div className="input-group mb-6 md:mb-8">
-                  <input 
-                    type="tel" 
-                    placeholder="YOUR PHONE NUMBER" 
-                    required 
-                    className="w-full bg-transparent border-b-2 border-[#3a150e] py-2 md:py-3 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2] placeholder:font-bold placeholder:tracking-widest"
-                  />
-                </div>
-                
-                <div className="input-group mb-8">
-                  <input 
-                    type="email" 
-                    placeholder="YOUR EMAIL" 
-                    required 
-                    className="w-full bg-transparent border-b-2 border-[#3a150e] py-2 md:py-3 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2] placeholder:font-bold placeholder:tracking-widest"
-                  />
-                </div>
-                
-                <div className="input-group mb-8 h-full">
-                  <textarea 
-                    placeholder="YOUR MESSAGE" 
-                    rows={4} 
-                    required 
-                    className="w-full bg-[#4a2215] border-none rounded-lg p-4 md:p-5 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2] placeholder:font-bold placeholder:tracking-widest resize-none shadow-inner"
-                  ></textarea>
-                </div>
-                
-                <div className="flex flex-col items-center mt-4">
-                  <button type="submit" className="bg-[#3a150e] text-white font-alkatra font-bold text-base md:text-lg tracking-widest px-8 py-3 rounded-lg hover:bg-[#2a0e08] transition-colors shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-                    SUBMIT MESSAGE
-                  </button>
-                  <p className="text-[#f9e2d2] text-xs md:text-sm mt-4 font-bold tracking-wide">
-                    Have a project in mind? Let&apos;s talk
-                  </p>
-                </div>
-                
-              </form>
 
+                {/* Black bar 2 */}
+                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
+                
+                {/* 3. Bottom empty filler - 54px aligns the final bar to the gap */}
+                <div className="w-full h-[54px] shrink-0 relative z-10"></div>
+                
+                {/* Black bar 3 */}
+                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
+
+              </div>
+
+              {/* Right Film Rail */}
               <FilmRail />
               
             </div>

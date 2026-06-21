@@ -36,7 +36,10 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
   font-family: var(--font-family-body);
-  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+* {
+  cursor: none !important; /* Hide default cursor everywhere, including links/buttons */
 }
 
 /* Custom Cursor */
