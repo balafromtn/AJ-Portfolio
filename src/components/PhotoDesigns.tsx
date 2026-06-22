@@ -36,11 +36,6 @@ export default function PhotoDesigns() {
           </div>
         </div>
       </div>
-      
-      {/* Film Marquee */}
-      <div className="marquee-container film-border mt-16">
-        <div className="marquee-content empty-film h-[30px]"></div>
-      </div>
     </section>
   );
 }

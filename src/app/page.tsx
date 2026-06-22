@@ -3,6 +3,7 @@ import Marquee from "@/components/Marquee";
 import Showreel from "@/components/Showreel";
 import FeaturedWorks from "@/components/FeaturedWorks";
 import PhotoDesigns from "@/components/PhotoDesigns";
+import Services from "@/components/Services";
 import About from "@/components/About";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
@@ -17,6 +18,7 @@ export default function Home() {
       <Showreel />
       <FeaturedWorks />
       <PhotoDesigns />
+      <Services />
       <About />
       <Stats />
       <Testimonials />

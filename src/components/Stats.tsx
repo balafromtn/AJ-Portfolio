@@ -23,11 +23,17 @@ export default function Stats() {
         start: "top 85%",
         onEnter: () => {
           const target = parseInt(num.getAttribute('data-target') || "0");
-          gsap.to(num, {
-            innerHTML: target,
-            duration: 2.5,
-            snap: { innerHTML: 1 },
-            ease: "power2.out"
+          const counter = { val: 0 };
+          
+          gsap.to(counter, {
+            val: target,
+            duration: 2,
+            ease: "power2.out",
+            onUpdate: () => {
+              if (num) {
+                num.textContent = Math.round(counter.val).toString();
+              }
+            }
           });
         },
         once: true
@@ -37,6 +43,11 @@ export default function Stats() {
 
   return (
     <section className="stats-testimonial-section pt-24 pb-12 bg-[#111] text-white relative" id="testimonials">
+      {/* Static Top Single Reel Stripe */}
+      <div className="absolute top-0 left-0 w-full bg-[#1a1008] h-[18px] z-20 shadow-md">
+        <div className="absolute inset-x-0 top-[4px] h-[10px] w-full" style={{ backgroundImage: 'repeating-linear-gradient(to right, rgba(247, 205, 181, 0.8) 0, rgba(247, 205, 181, 0.8) 12px, transparent 12px, transparent 22px)' }}></div>
+      </div>
+
       <div className="absolute inset-0 bg-[url('/assets/time-line.png')] bg-center bg-cover opacity-20 pointer-events-none"></div>
       
       <div className="container mx-auto px-8 max-w-7xl relative z-10" ref={containerRef}>
@@ -63,6 +74,11 @@ export default function Stats() {
             <p className="tracking-widest font-semibold mt-2">YEARS EXPERIENCE</p>
           </div>
         </div>
+      </div>
+
+      {/* Static Bottom Single Reel Stripe */}
+      <div className="absolute bottom-0 left-0 w-full bg-[#1a1008] h-[18px] z-20 shadow-md">
+        <div className="absolute inset-x-0 top-[4px] h-[10px] w-full" style={{ backgroundImage: 'repeating-linear-gradient(to right, rgba(247, 205, 181, 0.8) 0, rgba(247, 205, 181, 0.8) 12px, transparent 12px, transparent 22px)' }}></div>
       </div>
     </section>
   );
