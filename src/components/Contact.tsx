@@ -132,12 +132,8 @@ export default function Contact() {
                 {/* Black bar 2 */}
                 <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
                 
-                {/* 3. Bottom empty filler - 54px aligns the final bar to the gap */}
-                <div className="w-full h-[54px] shrink-0 relative z-10"></div>
-                
-                {/* Black bar 3 */}
-                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
-
+                {/* Bottom empty filler - 62px aligns to 2 tiles, mirroring the top */}
+                <div className="w-full h-[62px] shrink-0 relative z-10"></div>
               </div>
 
               {/* Right Film Rail */}
