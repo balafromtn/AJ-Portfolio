@@ -1,39 +1,117 @@
+"use client";
+
 import Image from 'next/image';
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function PhotoDesigns() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+    
+    const items = gsap.utils.toArray('.design-item') as HTMLElement[];
+    
+    items.forEach((item) => {
+      const image = item.querySelector('.design-image');
+      const text = item.querySelector('.design-text');
+      
+      gsap.fromTo(image, 
+        { y: 100, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+          }
+        }
+      );
+
+      gsap.fromTo(text, 
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 85%",
+          }
+        }
+      );
+    });
+  }, { scope: containerRef });
+
   return (
-    <section className="photo-designs-section py-24">
-      <div className="container mx-auto px-8 max-w-7xl">
-        <div className="section-title-wrapper text-center mb-16">
-          <h2 className="section-badge inline-block bg-[#5d3a2f] text-white px-6 py-2 text-3xl transform -rotate-3 shadow-[4px_4px_0_rgba(0,0,0,0.2)] font-heading">
-            PHOTO DESIGNS
+    <section ref={containerRef} className="relative py-32 overflow-hidden">
+      {/* BACKGROUND ELEMENTS */}
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[#5d3a2f]/5 rounded-full blur-[100px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-[#5d3a2f]/5 rounded-full blur-[120px] -z-10" />
+
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+        <div className="flex flex-col items-center mb-32">
+          <h2 className="text-[18vw] md:text-[10vw] font-black uppercase tracking-tighter text-transparent leading-none"
+              style={{ WebkitTextStroke: '3px var(--dark-brown, #5d3a2f)' }}>
+            PHOTO
+          </h2>
+          <h2 className="text-[18vw] md:text-[10vw] font-black uppercase tracking-tighter text-[#5d3a2f] leading-none -mt-6 md:-mt-12">
+            DESIGNS
           </h2>
         </div>
         
-        <div className="photo-grid grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
-          <div className="photo-card transform -rotate-3 transition-transform duration-300 hover:rotate-0 hover:scale-105 film-border-frame p-5 bg-[#111] rounded-lg">
-            <Image src="/assets/Insta-Thambnail.jpg" alt="Insta Thumbnail" width={600} height={400} className="w-full h-auto block" />
+        <div className="flex flex-col gap-32 md:gap-48">
+          {/* ITEM 1 */}
+          <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
+            <div className="design-image w-full md:w-[70%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
+              <div className="relative w-full aspect-[4/3] md:aspect-[16/9]">
+                <Image src="/assets/Insta-Thambnail.jpg" alt="Insta Thumbnail" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              </div>
+            </div>
+            <div className="design-text w-full md:w-[45%] md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">01 / Thumbnails</div>
+              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Designed To<br/>Get Clicks</h3>
+              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Attention-grabbing thumbnails and social media creatives built to stand out instantly in a crowded feed.</p>
+            </div>
           </div>
-          <div className="photo-text">
-            <h3 className="text-[1.8rem] text-[#5d3a2f] mb-2 font-heading">DESIGNED TO GET CLICKS</h3>
-            <p className="font-semibold text-lg">ATTENTION-GRABBING THUMBNAILS AND SOCIAL MEDIA CREATIVES BUILT TO STAND OUT INSTANTLY.</p>
+
+          {/* ITEM 2 */}
+          <div className="design-item relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-0">
+            <div className="design-image w-full md:w-[60%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
+              <div className="relative w-full aspect-[3/4]">
+                <Image src="/assets/College-Group-Photo.jpg" alt="College Group Photo" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              </div>
+            </div>
+            <div className="design-text w-full md:w-[45%] md:absolute md:left-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">02 / Compositions</div>
+              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Stories Told<br/>Through Design</h3>
+              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Large-scale visual compositions beautifully crafted to showcase people, achievements, and memorable moments.</p>
+            </div>
           </div>
-          
-          <div className="photo-text text-left md:text-right order-4 md:order-none">
-            <h3 className="text-[1.8rem] text-[#5d3a2f] mb-2 font-heading">STORIES TOLD THROUGH DESIGN</h3>
-            <p className="font-semibold text-lg">LARGE-SCALE VISUAL COMPOSITIONS DESIGNED TO SHOWCASE PEOPLE, ACHIEVEMENTS, AND MEMORABLE MOMENTS.</p>
+
+          {/* ITEM 3 */}
+          <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
+            <div className="design-image w-full md:w-[60%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
+              <div className="relative w-full aspect-[3/4]">
+                <Image src="/assets/Greeting.jpg" alt="Greeting" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+              </div>
+            </div>
+            <div className="design-text w-full md:w-[50%] md:absolute md:right-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">03 / Posters</div>
+              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">More Than Just<br/>A Greeting</h3>
+              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Custom-designed posters that turn special occasions into breathtaking, premium visual experiences.</p>
+            </div>
           </div>
-          <div className="photo-card film-border-frame-vertical p-5 bg-[#111] rounded-lg order-3 md:order-none">
-            <Image src="/assets/College-Group-Photo.jpg" alt="College Group Photo" width={600} height={400} className="w-full h-auto block" />
-          </div>
-          
-          <div className="photo-card transform -rotate-3 transition-transform duration-300 hover:rotate-0 hover:scale-105 film-border-frame-vertical p-5 bg-[#111] rounded-lg order-5 md:order-none">
-            <Image src="/assets/Greeting.jpg" alt="Greeting" width={600} height={400} className="w-full h-auto block" />
-          </div>
-          <div className="photo-text text-left md:text-right order-6 md:order-none">
-            <h3 className="text-[1.8rem] text-[#5d3a2f] mb-2 font-heading">MORE THAN JUST A GREETING</h3>
-            <p className="font-semibold text-lg">CUSTOM-DESIGNED POSTERS THAT TURN SPECIAL OCCASIONS INTO MEMORABLE VISUAL EXPERIENCES.</p>
-          </div>
+
         </div>
       </div>
     </section>
