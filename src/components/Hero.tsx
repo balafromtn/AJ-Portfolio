@@ -30,7 +30,7 @@ export default function Hero() {
 
     const tick = () => {
       const currentWord = words[wordIndex];
-      setTypedText(prefix + currentWord.substring(0, charIndex));
+      setTypedText(currentWord.substring(0, charIndex));
 
       if (isDeleting) {
         charIndex--;
@@ -170,7 +170,11 @@ export default function Hero() {
           <div className="hero-title-group absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-max pointer-events-none select-none">
             {/* Subtitle — "HI, I'M A VIDEO EDITOR" (Alkatra font) positioned absolute to the top-center of AIREN PIXEL */}
             <div className="absolute -top-[16%] md:-top-[20%] left-1/2 -translate-x-1/2 whitespace-nowrap z-10 w-max text-center">
-              <span className="font-alkatra text-[#5d3a2f] text-sm sm:text-xl md:text-3xl font-bold tracking-[0.1em] sm:tracking-[0.2em] drop-shadow-sm">{typedText}<span className="animate-pulse border-r-[2px] sm:border-r-[3px] border-[#5d3a2f] ml-[2px]"></span></span>
+              <span className="font-alkatra text-[#5d3a2f] text-sm sm:text-xl md:text-3xl font-bold tracking-[0.1em] sm:tracking-[0.2em] drop-shadow-sm">
+                <span style={{ WebkitTextStroke: '4px #f1d2d2ff', paintOrder: 'stroke fill', strokeLinejoin: 'round' }}>HI, I'M A </span>
+                <span className="text-white" style={{ WebkitTextStroke: '4px #5d3a2f', paintOrder: 'stroke fill', strokeLinejoin: 'round' }}>{typedText}</span>
+                <span className="animate-pulse border-r-[2px] sm:border-r-[3px] border-[#5d3a2f] ml-[2px]"></span>
+              </span>
             </div>
             {/* Large watermark title behind everything (Bangers font) */}
             <h1 className="hero-watermark font-bangers text-[18vw] leading-none whitespace-nowrap text-white drop-shadow-[8px_8px_0_rgba(92,38,38,0.2)] tracking-widest">
@@ -180,21 +184,21 @@ export default function Hero() {
 
           <Image
             src="/assets/main.png"
-            alt="Ajay Kumar"
-            width={600}
-            height={770}
+            alt="AIREN PIXEL"
+            width={650}
+            height={850}
             priority
             className="hero-main-img relative z-10 w-full h-full object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] pointer-events-none"
           />
 
           {/* Picsart - top right */}
-          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[80px] md:w-[110px] top-[30%] md:top-[35%] -right-[5%] md:-right-[10%]">
+          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[55px] h-[55px] md:w-[75px] md:h-[75px] top-[30%] md:top-[35%] -right-[5%] md:-right-[10%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-1">
               <img
                 ref={setIconHoverRef(0)}
-                src="/assets/picsart-icon.webp"
+                src="/assets/picsart-icon.png"
                 alt="Picsart"
-                className="floating-icon icon-picsart drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-auto"
+                className="floating-icon icon-picsart drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-full object-contain"
                 data-icon-type="picsart"
                 style={{ transform: 'rotate(12deg)' }}
               />
@@ -202,13 +206,13 @@ export default function Hero() {
           </div>
           
           {/* CapCut - bottom left */}
-          <div ref={setIconFloatRef(1)} className="absolute z-30 w-[90px] md:w-[115px] top-[55%] -left-[20%]">
+          <div ref={setIconFloatRef(1)} className="absolute z-30 w-[90px] h-[90px] md:w-[120px] md:h-[120px] top-[55%] -left-[20%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-2">
               <img
                 ref={setIconHoverRef(1)}
                 src="/assets/capcut-hero.webp"
                 alt="CapCut"
-                className="floating-icon icon-capcut drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-auto"
+                className="floating-icon icon-capcut drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-full object-contain"
                 data-icon-type="capcut"
                 style={{ transform: 'rotate(-15deg)' }}
               />
@@ -216,13 +220,14 @@ export default function Hero() {
           </div>
 
           {/* Alight Motion - bottom right */}
-          <div ref={setIconFloatRef(2)} className="absolute z-30 w-[130px] md:w-[160px] top-[60%] -right-[20%] md:-right-[25%]">
+          <div ref={setIconFloatRef(2)} className="absolute z-30 w-[120px] h-[120px] md:w-[160px] md:h-[160px] top-[60%] -right-[20%] md:-right-[25%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-3">
               <img
+                key="alight-motion-rebind"
                 ref={setIconHoverRef(2)}
                 src="/assets/alight-motion-hero.webp"
                 alt="Alight Motion"
-                className="floating-icon icon-alight drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-auto"
+                className="floating-icon icon-alight drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)] w-full h-full object-contain"
                 data-icon-type="alight"
                 style={{ transform: 'rotate(10deg)' }}
               />

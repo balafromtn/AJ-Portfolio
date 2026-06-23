@@ -2,58 +2,69 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="about-section py-24" id="about">
-      <div className="container mx-auto px-8 max-w-7xl about-grid grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="about-image-wrapper relative flex justify-center">
-          <div className="section-badge tilt-badge inline-block bg-[#5d3a2f] text-white px-6 py-2 text-2xl transform -rotate-5 shadow-[4px_4px_0_rgba(0,0,0,0.2)] font-heading absolute -top-5 left-1/2 -translate-x-1/2 z-10">
-            ABOUT ME
-          </div>
-          <div className="profile-circle w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-[10px] border-[#c92a2a] shadow-[0_0_0_10px_white,0_10px_30px_rgba(0,0,0,0.3)] relative">
+    <section className="about-section py-20 relative" id="about">
+      {/* Top Centered ABOUT ME Badge */}
+      <div className="container mx-auto px-6 flex justify-center mb-16 relative z-10">
+        <h2 className="inline-block bg-[#5d3a2f] text-white px-8 md:px-12 py-2 text-4xl md:text-5xl font-bangers transform -rotate-2 shadow-[6px_6px_0_rgba(0,0,0,0.2)] tracking-widest">
+          ABOUT ME
+        </h2>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-8 max-w-6xl about-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+        
+        {/* Left: Profile Image with Solid Circle Backdrop */}
+        <div className="about-image-wrapper relative flex justify-center items-center">
+          {/* Large solid background circle (darker beige/peach), faded and larger */}
+          <div className="absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] bg-[#d59a7a]/40 rounded-full -z-10"></div>
+          
+          {/* APFX Logo */}
+          <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px]">
             <Image
-              src="/assets/main.png"
-              alt="Ajay Kumar"
+              src="/assets/APFXLogo.png"
+              alt="APFX Logo"
               fill
-              className="object-cover"
+              className="object-contain drop-shadow-xl"
             />
           </div>
         </div>
-        <div className="about-text-content">
-          <p className="text-xl font-semibold mb-4 leading-relaxed">
-            HI, I&apos;M AJAY KUMAR,
-          </p>
-          <p className="text-xl font-semibold mb-4 leading-relaxed">
-            THE CREATIVE MIND BEHIND AIREN PIXEL.
-          </p>
-          <p className="text-xl font-semibold mb-6 leading-relaxed">
-            I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND
-            CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION
-            AND ENGAGE THEIR AUDIENCE.
-          </p>
 
-          <h3 className="section-badge small-badge mt-8 inline-block bg-[#5d3a2f] text-white px-4 py-1.5 text-xl transform -rotate-3 shadow-[4px_4px_0_rgba(0,0,0,0.2)] font-heading">
+        {/* Right: Text Content and Tool Stack */}
+        <div className="about-text-content flex flex-col items-center text-center lg:items-center w-full lg:pl-8 xl:pl-12">
+          <div className="text-[#2a1610] font-alkatra font-bold tracking-wide text-lg sm:text-[22px] md:text-[26px] leading-tight mb-10 w-full max-w-[800px] text-center">
+            {/* Desktop exact line breaks enforced via spans */}
+            <p className="hidden md:flex flex-col items-center justify-center space-y-1">
+              <span className="block whitespace-nowrap">HI, I&apos;M AJAY KUMAR,</span>
+              <span className="block whitespace-nowrap">THE CREATIVE MIND BEHIND AIREN PIXEL.</span>
+              <span className="block whitespace-nowrap">I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS,</span>
+              <span className="block whitespace-nowrap">PHOTO EDITING AND CINEMATIC CONTENT THAT</span>
+              <span className="block whitespace-nowrap">HELPS CREATORS AND BRANDS CAPTURE ATTENTION</span>
+              <span className="block whitespace-nowrap">AND ENGAGE THEIR AUDIENCE.</span>
+            </p>
+            {/* Mobile natural wrapping */}
+            <p className="md:hidden px-4">
+              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION AND ENGAGE THEIR AUDIENCE.
+            </p>
+          </div>
+
+          <h3 className="inline-block bg-[#5d3a2f] text-white px-6 py-1 md:py-2 text-2xl md:text-3xl font-bangers transform -rotate-2 shadow-[4px_4px_0_rgba(0,0,0,0.2)] tracking-widest mb-8 mt-2">
             TOOL STACK
           </h3>
-          <div className="tool-icons flex gap-4 mt-6">
-            <div className="w-[60px] h-[60px] rounded-[15px] shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:-translate-y-[5px] transition-transform duration-300 relative overflow-hidden bg-white flex items-center justify-center p-2">
-              <Image src="/assets/capcut-hero.webp" alt="CapCut" width={40} height={40} className="object-contain" />
-            </div>
-            <div className="w-[60px] h-[60px] rounded-[15px] shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:-translate-y-[5px] transition-transform duration-300 relative overflow-hidden bg-white flex items-center justify-center p-2">
-              <Image src="/assets/alight-motion-hero.webp" alt="Alight Motion" width={40} height={40} className="object-contain" />
-            </div>
-            <div className="w-[60px] h-[60px] rounded-[15px] shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:-translate-y-[5px] transition-transform duration-300 relative overflow-hidden bg-white flex items-center justify-center p-2">
-              <Image src="/assets/picsart-icon.webp" alt="Picsart" width={40} height={40} className="object-contain" />
-            </div>
-            <div className="w-[60px] h-[60px] rounded-[15px] shadow-[0_5px_15px_rgba(0,0,0,0.1)] hover:-translate-y-[5px] transition-transform duration-300 relative overflow-hidden bg-white flex items-center justify-center p-2">
-              <Image src="/assets/snapseed-icon.webp" alt="Snapseed" width={40} height={40} className="object-contain" />
-            </div>
+          
+          <div className="tool-icons flex flex-wrap justify-center items-center gap-6 sm:gap-8">
+            {[
+              { src: "/assets/capcut-3d-icon.png", alt: "CapCut", sizeClasses: "w-[80px] h-[80px] md:w-[90px] md:h-[90px]" },
+              { src: "/assets/Alight-Motion-Logo.webp", alt: "Alight Motion", sizeClasses: "w-[80px] h-[80px] md:w-[90px] md:h-[90px]" },
+              { src: "/assets/picsart-icon.png", alt: "Picsart", sizeClasses: "w-[80px] h-[80px] md:w-[90px] md:h-[90px]" },
+              { src: "/assets/snapseed-icon.png", alt: "Snapseed", sizeClasses: "w-[80px] h-[80px] md:w-[90px] md:h-[90px]" }
+            ].map((tool, idx) => (
+              <div key={idx} className={`${tool.sizeClasses} hover:-translate-y-[5px] transition-transform duration-300 relative flex items-center justify-center drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]`}>
+                <Image src={tool.src} alt={tool.alt} fill className="object-contain" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
       
-      {/* Film Marquee */}
-      <div className="marquee-container film-border mt-24">
-        <div className="marquee-content empty-film h-[30px]"></div>
-      </div>
     </section>
   );
 }

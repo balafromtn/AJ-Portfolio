@@ -25,7 +25,7 @@ export default function CustomCursor() {
     };
 
     // Add hover effect for clickable elements
-    const handleMouseOver = (e: MouseEvent) => {
+      const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
         target.tagName.toLowerCase() === 'a' ||
@@ -33,7 +33,8 @@ export default function CustomCursor() {
         target.closest('a') ||
         target.closest('button') ||
         target.classList.contains('nav-link') ||
-        target.classList.contains('liquid-btn')
+        target.classList.contains('liquid-btn') ||
+        target.classList.contains('floating-icon')
       ) {
         cursor.classList.add('hovering');
       }
