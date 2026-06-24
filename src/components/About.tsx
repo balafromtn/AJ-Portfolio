@@ -11,12 +11,12 @@ export default function About() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-8 max-w-6xl about-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
-        
+
         {/* Left: Profile Image with Solid Circle Backdrop */}
         <div className="about-image-wrapper relative flex justify-center items-center">
           {/* Large solid background circle (darker beige/peach), faded and larger */}
           <div className="absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] bg-[#d59a7a]/40 rounded-full -z-10"></div>
-          
+
           {/* APFX Logo */}
           <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px]">
             <Image
@@ -35,21 +35,22 @@ export default function About() {
             <p className="hidden md:flex flex-col items-center justify-center space-y-1">
               <span className="block whitespace-nowrap">HI, I&apos;M AJAY KUMAR,</span>
               <span className="block whitespace-nowrap">THE CREATIVE MIND BEHIND AIREN PIXEL.</span>
-              <span className="block whitespace-nowrap">I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS,</span>
-              <span className="block whitespace-nowrap">PHOTO EDITING AND CINEMATIC CONTENT THAT</span>
+              <span className="block whitespace-nowrap">I SPECIALIZE IN HIGH-QUALITY VIDEO EDITING,</span>
+              <span className="block whitespace-nowrap">MOTION GRAPHICS, PHOTO EDITING</span>
+              <span className="block whitespace-nowrap">AND CINEMATIC CONTENT THAT</span>
               <span className="block whitespace-nowrap">HELPS CREATORS AND BRANDS CAPTURE ATTENTION</span>
               <span className="block whitespace-nowrap">AND ENGAGE THEIR AUDIENCE.</span>
             </p>
             {/* Mobile natural wrapping */}
             <p className="md:hidden px-4">
-              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I SPECIALIZE IN VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION AND ENGAGE THEIR AUDIENCE.
+              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I SPECIALIZE IN HIGH-QUALITY VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION AND ENGAGE THEIR AUDIENCE.
             </p>
           </div>
 
           <h3 className="inline-block bg-[#5d3a2f] text-white px-6 py-1 md:py-2 text-2xl md:text-3xl font-bangers transform -rotate-2 shadow-[4px_4px_0_rgba(0,0,0,0.2)] tracking-widest mb-8 mt-2">
             TOOL STACK
           </h3>
-          
+
           <div className="tool-icons flex flex-wrap justify-center items-center gap-6 sm:gap-8">
             {[
               { src: "/assets/capcut-3d-icon.png", alt: "CapCut", sizeClasses: "w-[80px] h-[80px] md:w-[90px] md:h-[90px]" },
@@ -64,7 +65,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      
+
     </section>
   );
 }

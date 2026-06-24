@@ -8,7 +8,7 @@ export default function Marquee() {
       <div className="hero-film-strip w-[120%] flex-shrink-0 -rotate-2 scale-105 pointer-events-none shadow-2xl origin-center">
         <div className="film-strip-inner film-border bg-[#1a1008] text-[#f7cdb5]">
           <div className="marquee-container py-5 md:py-6 overflow-hidden w-full flex">
-            <div className="animate-marquee whitespace-nowrap flex items-center font-alkatra text-3xl md:text-5xl font-bold tracking-[8px] drop-shadow-md" style={{ animationDirection: 'reverse' }}>
+            <div className="animate-marquee whitespace-nowrap flex items-center font-alkatra text-2xl md:text-4xl font-bold tracking-[8px] drop-shadow-md" style={{ animationDirection: 'reverse' }}>
               {Array.from({ length: 4 }).map((_, i) => (
                 <React.Fragment key={i}>
                   <span className="pr-10">•</span>

@@ -50,26 +50,26 @@ export default function Stats() {
 
       <div className="absolute inset-0 bg-[url('/assets/time-line.png')] bg-center bg-cover opacity-20 pointer-events-none"></div>
       
-      <div className="container mx-auto px-8 max-w-7xl relative z-10" ref={containerRef}>
+      <div className="container mx-auto px-8 max-w-5xl relative z-10" ref={containerRef}>
         <div className="stats-grid flex flex-col md:flex-row justify-around items-center gap-12 border-b-2 border-white/20 pb-12 mb-16">
           <div className="stat-item text-center">
             <div className="flex items-baseline justify-center">
-              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="40">0</h2>
-              <span className="text-[3rem] font-heading">+</span>
+              <h2 className="stat-number text-[5rem] font-bangers leading-none" data-target="40">0</h2>
+              <span className="text-[3rem] font-bangers">+</span>
             </div>
             <p className="tracking-widest font-semibold mt-2">HAPPY CLIENTS</p>
           </div>
           <div className="stat-item text-center">
             <div className="flex items-baseline justify-center">
-              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="2">0</h2>
-              <span className="text-[3rem] font-heading">M+</span>
+              <h2 className="stat-number text-[5rem] font-bangers leading-none" data-target="2">0</h2>
+              <span className="text-[3rem] font-bangers">M+</span>
             </div>
             <p className="tracking-widest font-semibold mt-2">VIEWS GENERATED</p>
           </div>
           <div className="stat-item text-center">
             <div className="flex items-baseline justify-center">
-              <h2 className="stat-number text-[5rem] font-heading leading-none" data-target="3">0</h2>
-              <span className="text-[3rem] font-heading">+</span>
+              <h2 className="stat-number text-[5rem] font-bangers leading-none" data-target="3">0</h2>
+              <span className="text-[3rem] font-bangers">+</span>
             </div>
             <p className="tracking-widest font-semibold mt-2">YEARS EXPERIENCE</p>
           </div>
