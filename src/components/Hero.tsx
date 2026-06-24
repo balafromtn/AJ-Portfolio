@@ -22,7 +22,7 @@ export default function Hero() {
 
   useEffect(() => {
     const prefix = "HI, I'M A ";
-    const words = ["VIDEO EDITOR", "MOTION GRAPHIC DESIGNER"];
+    const words = ["VIDEO EDITOR", "MOTION GRAPHIC DESIGNER", "POSTER DESIGNER"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;

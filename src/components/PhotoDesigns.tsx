@@ -72,9 +72,9 @@ export default function PhotoDesigns() {
         <div className="flex flex-col gap-32 md:gap-48">
           {/* ITEM 1 */}
           <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[70%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
-              <div className="relative w-full aspect-[4/3] md:aspect-[16/9]">
-                <Image src="/assets/Insta-Thambnail.jpg" alt="Insta Thumbnail" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            <div className="design-image w-full md:w-[70%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame p-3 md:p-5 bg-[#111]">
+              <div className="relative w-full aspect-[16/9]">
+                <Image src="/assets/Insta-Thambnail.jpg" alt="Insta Thumbnail" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
               </div>
             </div>
             <div className="design-text w-full md:w-[45%] md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
@@ -86,9 +86,9 @@ export default function PhotoDesigns() {
 
           {/* ITEM 2 */}
           <div className="design-item relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[60%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
+            <div className="design-image w-full md:w-[60%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111]">
               <div className="relative w-full aspect-[3/4]">
-                <Image src="/assets/College-Group-Photo.jpg" alt="College Group Photo" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                <Image src="/assets/College-Group-Photo.jpg" alt="College Group Photo" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
               </div>
             </div>
             <div className="design-text w-full md:w-[45%] md:absolute md:left-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
@@ -100,9 +100,9 @@ export default function PhotoDesigns() {
 
           {/* ITEM 3 */}
           <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[60%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0">
+            <div className="design-image w-full md:w-[60%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111]">
               <div className="relative w-full aspect-[3/4]">
-                <Image src="/assets/Greeting.jpg" alt="Greeting" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                <Image src="/assets/Greeting.jpg" alt="Greeting" fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
               </div>
             </div>
             <div className="design-text w-full md:w-[50%] md:absolute md:right-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
