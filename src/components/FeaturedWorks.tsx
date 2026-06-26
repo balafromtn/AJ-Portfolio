@@ -13,6 +13,7 @@ export default function FeaturedWorks() {
   const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [isMuted, setIsMuted] = React.useState(true);
 
   useGSAP(() => {
     if (!wrapperRef.current || !contentRef.current || !sectionRef.current) return;
@@ -58,52 +59,71 @@ export default function FeaturedWorks() {
 
   }, { scope: sectionRef });
 
+  const VolumeButton = () => (
+    <button
+      onClick={() => setIsMuted(!isMuted)}
+      className="absolute top-6 right-6 md:top-10 md:right-10 z-20 bg-black/60 p-3 md:p-4 rounded-full hover:bg-black/80 transition-colors text-white"
+    >
+      {isMuted ? (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+      ) : (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+      )}
+    </button>
+  );
+
   return (
-    <section ref={sectionRef} className="featured-works-section bg-[#5d3a2f] text-white overflow-hidden" id="featured">
+    <section ref={sectionRef} className="featured-works-section bg-[#5d3a2f] text-white overflow-hidden relative" id="featured">
+      {/* Global blurred timeline background for the entire section */}
+      <div className="absolute inset-0 bg-cover bg-center opacity-30 blur-[5px]" style={{ backgroundImage: "url('/assets/time-line.png')" }}></div>
+
       <div className="horizontal-scroll-wrapper relative w-full h-[100dvh]" ref={wrapperRef}>
         <div className="horizontal-scroll-content flex h-[100dvh] items-center w-max" ref={contentRef}>
-          
+
           {/* Intro Title Panel */}
           <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
-            <div className="featured-bg absolute inset-0 bg-cover bg-center opacity-30 blur-[5px]" style={{ backgroundImage: "url('/assets/time-line.png')" }}></div>
-            <div className="featured-text-wrapper relative z-10 flex items-center gap-8">
-              <h2 className="featured-title text-[5rem] md:text-[8rem] leading-none font-heading">FEATURED<br/>WORKS</h2>
-              <h3 className="vertical-text text-2xl tracking-[5px] border-l-2 border-white pl-3 font-heading" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>TRENDING REEL</h3>
+            <div className="featured-text-wrapper relative z-10 flex items-center justify-center">
+              <h2 className="featured-title text-[5rem] md:text-[10rem] leading-none font-sans font-bold text-white tracking-tight text-center">FEATURED<br />WORKS</h2>
             </div>
           </div>
-          
+
           {/* Reel Panels */}
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-8 md:px-16">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+              <VolumeButton />
+              <video autoPlay loop muted={isMuted} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/trending-reel.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-8 md:px-16">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+              <VolumeButton />
+              <video autoPlay loop muted={isMuted} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/vlog.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-8 md:px-16">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+              <VolumeButton />
+              <video autoPlay loop muted={isMuted} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/batmiton.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-8 md:px-16">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+              <VolumeButton />
+              <video autoPlay loop muted={isMuted} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/kho-kho-team.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-8 md:px-16 pr-24 md:pr-48">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+              <VolumeButton />
+              <video autoPlay loop muted={isMuted} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/motion-graphics.mp4" type="video/mp4" />
               </video>
             </div>
@@ -111,7 +131,7 @@ export default function FeaturedWorks() {
 
         </div>
       </div>
-      
+
       {/* Film Marquee */}
       <div className="marquee-container film-border">
         <div className="marquee-content empty-film h-[30px]"></div>
