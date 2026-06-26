@@ -57,7 +57,7 @@ export default function PhotoDesigns() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="relative py-32 overflow-hidden">
+    <section ref={containerRef} className="relative pt-40 pb-32 overflow-hidden z-20 -mt-16 md:-mt-32 rounded-t-[3rem] shadow-[0_-30px_60px_rgba(0,0,0,0.2)]" style={{ backgroundColor: 'var(--bg-color)', backgroundImage: 'radial-gradient(var(--dot-color) 2px, transparent 2px)', backgroundSize: '20px 20px' }}>
       {/* BACKGROUND ELEMENTS */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-[#5d3a2f]/5 rounded-full blur-[100px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-[#5d3a2f]/5 rounded-full blur-[120px] -z-10" />

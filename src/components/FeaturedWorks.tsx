@@ -10,14 +10,32 @@ if (typeof window !== "undefined") {
 }
 
 export default function FeaturedWorks() {
+  const sectionRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (!wrapperRef.current || !contentRef.current) return;
+    if (!wrapperRef.current || !contentRef.current || !sectionRef.current) return;
 
     const wrapper = wrapperRef.current;
     const content = contentRef.current;
+    const section = sectionRef.current;
+
+    // Entrance Transition (Scale Up)
+    gsap.fromTo(wrapper,
+      { scale: 0.85, borderRadius: "3rem" },
+      {
+        scale: 1,
+        borderRadius: "0rem",
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top bottom", // Start when top of section hits bottom of screen
+          end: "top top",      // End when it pins at the top
+          scrub: 1,
+        }
+      }
+    );
 
     const getScrollAmount = () => {
       return -(content.scrollWidth - window.innerWidth);
@@ -38,15 +56,15 @@ export default function FeaturedWorks() {
       invalidateOnRefresh: true,
     });
 
-  }, { scope: wrapperRef });
+  }, { scope: sectionRef });
 
   return (
-    <section className="featured-works-section bg-[#5d3a2f] text-white overflow-hidden" id="featured">
-      <div className="horizontal-scroll-wrapper relative w-full h-screen" ref={wrapperRef}>
-        <div className="horizontal-scroll-content flex h-screen items-center w-max" ref={contentRef}>
+    <section ref={sectionRef} className="featured-works-section bg-[#5d3a2f] text-white overflow-hidden" id="featured">
+      <div className="horizontal-scroll-wrapper relative w-full h-[100dvh]" ref={wrapperRef}>
+        <div className="horizontal-scroll-content flex h-[100dvh] items-center w-max" ref={contentRef}>
           
           {/* Intro Title Panel */}
-          <div className="h-panel w-screen h-screen flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
             <div className="featured-bg absolute inset-0 bg-cover bg-center opacity-30 blur-[5px]" style={{ backgroundImage: "url('/assets/time-line.png')" }}></div>
             <div className="featured-text-wrapper relative z-10 flex items-center gap-8">
               <h2 className="featured-title text-[5rem] md:text-[8rem] leading-none font-heading">FEATURED<br/>WORKS</h2>
@@ -55,36 +73,36 @@ export default function FeaturedWorks() {
           </div>
           
           {/* Reel Panels */}
-          <div className="h-panel w-screen h-screen flex items-center justify-center shrink-0">
-            <div className="video-panel w-[80vw] md:w-[60vw] h-[70vh] mx-[2vw] film-border-frame-vertical rounded-lg overflow-hidden relative p-5 bg-[#111]">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/trending-reel.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-screen h-screen flex items-center justify-center shrink-0">
-            <div className="video-panel w-[80vw] md:w-[60vw] h-[70vh] mx-[2vw] film-border-frame-vertical rounded-lg overflow-hidden relative p-5 bg-[#111]">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/vlog.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-screen h-screen flex items-center justify-center shrink-0">
-            <div className="video-panel w-[80vw] md:w-[60vw] h-[70vh] mx-[2vw] film-border-frame-vertical rounded-lg overflow-hidden relative p-5 bg-[#111]">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/batmiton.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-screen h-screen flex items-center justify-center shrink-0">
-            <div className="video-panel w-[80vw] md:w-[60vw] h-[70vh] mx-[2vw] film-border-frame-vertical rounded-lg overflow-hidden relative p-5 bg-[#111]">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/kho-kho-team.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          <div className="h-panel w-screen h-screen flex items-center justify-center shrink-0">
-            <div className="video-panel w-[80vw] md:w-[60vw] h-[70vh] mx-[2vw] film-border-frame-vertical rounded-lg overflow-hidden relative p-5 bg-[#111]">
+          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center shrink-0">
+            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] mx-[2vw] film-border-frame-vertical rounded-none overflow-hidden relative p-3 md:p-5 bg-[#111]">
               <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/motion-graphics.mp4" type="video/mp4" />
               </video>
