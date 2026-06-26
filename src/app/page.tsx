@@ -22,7 +22,6 @@ export default function Home() {
       <About />
       <Stats />
       <Testimonials />
-      <Marquee />
       <Contact />
       <Footer />
     </main>

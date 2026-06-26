@@ -63,25 +63,25 @@ export default function PhotoDesigns() {
       <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-[#5d3a2f]/5 rounded-full blur-[120px] -z-10" />
 
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        <div className="flex flex-col items-center mb-32">
-          <h2 className="text-[18vw] md:text-[10vw] font-black uppercase tracking-tighter text-transparent leading-none"
+        <div className="flex flex-col items-center mb-24 md:mb-32">
+          <h2 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter text-transparent leading-none"
               style={{ WebkitTextStroke: '3px var(--dark-brown, #5d3a2f)' }}>
             PHOTO
           </h2>
-          <h2 className="text-[18vw] md:text-[10vw] font-black uppercase tracking-tighter text-[#5d3a2f] leading-none -mt-6 md:-mt-12">
+          <h2 className="text-[14vw] md:text-[8vw] font-black uppercase tracking-tighter text-[#5d3a2f] leading-none -mt-4 md:-mt-8">
             DESIGNS
           </h2>
         </div>
         
         <div className="flex flex-col gap-32 md:gap-48">
           {/* ITEM 1 */}
-          <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[55%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame p-3 md:p-5 bg-[#111]">
+          <div className="design-item flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
+            <div className="design-image w-full md:w-[42%] lg:w-[40%] order-1 rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame p-3 md:p-5 bg-[#111] transform -rotate-2 hover:rotate-0 transition-all duration-500 ease-out cursor-pointer hover:scale-105 shrink-0">
               <div className="relative w-full overflow-hidden">
-                <Image src={instaThumbnail} alt="Insta Thumbnail" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
+                <Image src={instaThumbnail} alt="Insta Thumbnail" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out rounded-sm" />
               </div>
             </div>
-            <div className="design-text w-full md:w-[45%] md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+            <div className="design-text w-full md:w-[48%] lg:w-[45%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
               <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">01 / Thumbnails</div>
               <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Designed To<br/>Get Clicks</h3>
               <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Attention-grabbing thumbnails and social media creatives built to stand out instantly in a crowded feed.</p>
@@ -89,27 +89,27 @@ export default function PhotoDesigns() {
           </div>
 
           {/* ITEM 2 */}
-          <div className="design-item relative flex flex-col md:flex-row-reverse items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[45%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111]">
-              <div className="relative w-full overflow-hidden">
-                <Image src={collegeGroupPhoto} alt="College Group Photo" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
-              </div>
-            </div>
-            <div className="design-text w-full md:w-[45%] md:absolute md:left-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+          <div className="design-item flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0 mt-24 md:mt-0">
+            <div className="design-text w-full md:w-[48%] lg:w-[45%] order-2 md:order-1 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
               <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">02 / Compositions</div>
               <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Stories Told<br/>Through Design</h3>
               <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Large-scale visual compositions beautifully crafted to showcase people, achievements, and memorable moments.</p>
             </div>
+            <div className="design-image w-full md:w-[42%] lg:w-[40%] order-1 md:order-2 rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111] transform rotate-3 hover:rotate-0 transition-all duration-500 ease-out cursor-pointer hover:scale-105 shrink-0">
+              <div className="relative w-full overflow-hidden">
+                <Image src={collegeGroupPhoto} alt="College Group Photo" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out rounded-sm" />
+              </div>
+            </div>
           </div>
 
           {/* ITEM 3 */}
-          <div className="design-item relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-            <div className="design-image w-full md:w-[45%] rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111]">
+          <div className="design-item flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0 mt-24 md:mt-0">
+            <div className="design-image w-full md:w-[42%] lg:w-[40%] order-1 rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111] transform -rotate-3 hover:rotate-0 transition-all duration-500 ease-out cursor-pointer hover:scale-105 shrink-0">
               <div className="relative w-full overflow-hidden">
-                <Image src={greeting} alt="Greeting" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out rounded-sm" />
+                <Image src={greeting} alt="Greeting" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out rounded-sm" />
               </div>
             </div>
-            <div className="design-text w-full md:w-[50%] md:absolute md:right-[5%] md:top-1/2 md:-translate-y-1/2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10">
+            <div className="design-text w-full md:w-[48%] lg:w-[45%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
               <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">03 / Posters</div>
               <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">More Than Just<br/>A Greeting</h3>
               <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Custom-designed posters that turn special occasions into breathtaking, premium visual experiences.</p>

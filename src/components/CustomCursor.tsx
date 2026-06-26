@@ -27,6 +27,17 @@ export default function CustomCursor() {
     // Add hover effect for clickable elements
       const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
+      
+      // Theme Detection: Determine if we are hovering over a dark section
+      // Check against background colors or specific section IDs
+      const isDarkSection = target.closest('.bg-\\[\\#111\\], .bg-\\[\\#1a1008\\], .bg-\\[\\#0f0905\\], .bg-\\[\\#5d3a2f\\], .bg-\\[\\#2a1610\\], .bg-\\[\\#111111\\], .bg-\\[\\#0a0503\\], footer, #testimonials, #featured, #contact, .film-strip-inner, .design-image');
+      
+      if (isDarkSection) {
+        cursor.classList.add('on-dark');
+      } else {
+        cursor.classList.remove('on-dark');
+      }
+
       if (
         target.tagName.toLowerCase() === 'a' ||
         target.tagName.toLowerCase() === 'button' ||

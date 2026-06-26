@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FiInstagram, FiMail, FiPhoneCall } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import Marquee from "./Marquee";
 
 const FilmRail = () => (
   <div className="w-[30px] md:w-[45px] shrink-0 self-stretch z-10 relative" style={{
@@ -20,7 +21,12 @@ export default function Contact() {
 
   return (
     <section className="contact-section relative z-10" id="contact">
-      <div className="container mx-auto px-8 max-w-7xl">
+      <div className="absolute top-0 left-0 w-full z-50 pointer-events-none">
+        <div className="pointer-events-auto">
+          <Marquee />
+        </div>
+      </div>
+      <div className="container mx-auto px-8 max-w-7xl pt-10 md:pt-16">
         <div className="contact-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch min-h-[95vh]">
           
           {/* LEFT COLUMN */}
@@ -33,7 +39,7 @@ export default function Contact() {
             </div>
             
             <p className="contact-desc mb-10 md:mb-12 text-lg sm:text-xl md:text-2xl font-bold leading-snug md:leading-relaxed max-w-xl text-white font-alkatra tracking-wider" style={{ textShadow: "0 4px 8px rgba(0,0,0,0.8)" }}>
-              WHETHER YOU&apos;RE A CREATOR, BRAND, OR BUSINESS, I&apos;M HERE TO TRANSFORM YOUR IDEAS INTO ENGAGING VISUAL CONTENT THROUGH HIGH-RETENTION EDITING, PHOTO DESIGNS AND MOTION GRAPHICS.
+              WHETHER YOU&apos;RE A CREATOR, BRAND, OR BUSINESS, I&apos;M HERE TO TRANSFORM YOUR IDEAS INTO HIGH-QUALITY ENGAGING VISUAL CONTENT THROUGH HIGH-RETENTION EDITING, PHOTO DESIGNS AND MOTION GRAPHICS.
             </p>
             
             <div className="social-icons flex gap-4 md:gap-6 justify-center">

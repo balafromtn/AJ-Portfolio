@@ -35,6 +35,9 @@ const alkatra = Alkatra({
 export const metadata: Metadata = {
   title: "Airen Pixel | Video Editing & Motion Graphics",
   description: "Dynamic speed ramps and cinematic transitions crafted to make every frame feel alive.",
+  icons: {
+    icon: "/assets/APFXLogo.png",
+  }
 };
 
 export default function RootLayout({
