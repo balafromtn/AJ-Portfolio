@@ -45,6 +45,16 @@ body {
   background-size: 20px 20px;
 }
 
+.highlight-text {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 100'%3E%3Cpath d='M 0,10 C 30,5 70,10 100,5 C 100,95 70,95 0,90 Z' fill='%235d3a2f' opacity='0.95' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: left center;
+  padding: 0 12px;
+  margin: 0 -6px;
+  color: inherit;
+}
+
 * {
   cursor: none !important;
   /* Hide default cursor everywhere, including links/buttons */

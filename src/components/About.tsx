@@ -1,8 +1,84 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function About() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    // Highlight text animation (realistic marker sequence)
+    const highlights = gsap.utils.toArray('.highlight-text') as HTMLElement[];
+    if (highlights.length > 0) {
+      gsap.to(highlights, {
+        backgroundSize: "100% 100%",
+        color: "white",
+        ease: "power1.inOut",
+        duration: 0.4,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".about-text-content",
+          start: "top 75%",
+          end: "bottom 30%",
+          toggleActions: "play reverse play reverse",
+        }
+      });
+    }
+
+    // Circle and Logo intro animations
+    const circle = containerRef.current.querySelector('.about-circle');
+    const logo = containerRef.current.querySelector('.about-logo');
+
+    if (circle) {
+      gsap.fromTo(circle,
+        { scale: 0, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          ease: "elastic.out(1, 0.5)",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse",
+          }
+        }
+      );
+    }
+
+    if (logo) {
+      gsap.fromTo(logo,
+        { scale: 0.5, opacity: 0, rotation: -15 },
+        {
+          scale: 1,
+          opacity: 1,
+          rotation: 0,
+          duration: 1.2,
+          delay: 0.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse",
+          }
+        }
+      );
+    }
+  }, { scope: containerRef });
+
   return (
-    <section className="about-section py-20 relative" id="about">
+    <section ref={containerRef} className="about-section py-20 relative" id="about">
       {/* Top Centered ABOUT ME Badge */}
       <div className="container mx-auto px-6 flex justify-center mb-16 relative z-10">
         <h2 className="inline-block bg-[#5d3a2f] text-white px-8 md:px-12 py-2 text-4xl md:text-5xl font-bangers transform -rotate-2 shadow-[6px_6px_0_rgba(0,0,0,0.2)] tracking-widest">
@@ -15,10 +91,10 @@ export default function About() {
         {/* Left: Profile Image with Solid Circle Backdrop */}
         <div className="about-image-wrapper relative flex justify-center items-center">
           {/* Large solid background circle (darker beige/peach), faded and larger */}
-          <div className="absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] bg-[#d59a7a]/40 rounded-full -z-10"></div>
+          <div className="about-circle absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] bg-[#d59a7a]/40 rounded-full -z-10 origin-center"></div>
 
           {/* APFX Logo */}
-          <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px]">
+          <div className="about-logo relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] origin-center">
             <Image
               src="/assets/APFXLogo.png"
               alt="APFX Logo"
@@ -35,15 +111,15 @@ export default function About() {
             <p className="hidden md:flex flex-col items-center justify-center space-y-1">
               <span className="block whitespace-nowrap">HI, I&apos;M AJAY KUMAR,</span>
               <span className="block whitespace-nowrap">THE CREATIVE MIND BEHIND AIREN PIXEL.</span>
-              <span className="block whitespace-nowrap">I CREATE HIGH-QUALITY VIDEO EDITS,</span>
-              <span className="block whitespace-nowrap">MOTION GRAPHICS, AND CINEMATIC VISUALS</span>
+              <span className="block whitespace-nowrap">I CREATE <span className="highlight-text inline-block">HIGH-QUALITY VIDEO EDITS</span>,</span>
+              <span className="block whitespace-nowrap"><span className="highlight-text inline-block">MOTION GRAPHICS</span>, AND <span className="highlight-text inline-block">CINEMATIC VISUALS</span></span>
               <span className="block whitespace-nowrap">THAT HELP CREATORS AND BRANDS</span>
               <span className="block whitespace-nowrap">CAPTURE ATTENTION AND BUILD</span>
               <span className="block whitespace-nowrap">STRONGER AUDIENCE CONNECTIONS.</span>
             </p>
             {/* Mobile/Tablet fluid text */}
             <p className="md:hidden px-4">
-              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I CREATE HIGH-QUALITY VIDEO EDITS, MOTION GRAPHICS, AND CINEMATIC VISUALS THAT HELP CREATORS AND BRANDS CAPTURE ATTENTION AND BUILD STRONGER AUDIENCE CONNECTIONS.
+              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I CREATE <span className="highlight-text inline-block">HIGH-QUALITY VIDEO EDITS</span>, <span className="highlight-text inline-block">MOTION GRAPHICS</span>, AND <span className="highlight-text inline-block">CINEMATIC VISUALS</span> THAT HELP CREATORS AND BRANDS CAPTURE ATTENTION AND BUILD STRONGER AUDIENCE CONNECTIONS.
             </p>
           </div>
 
