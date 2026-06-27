@@ -3,6 +3,8 @@ import { Quicksand, Anton, Bebas_Neue, Silkscreen, Bangers, Alkatra } from "next
 import "./globals.css";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import CustomCursor from "@/components/CustomCursor";
+import ClickSpark from "@/components/ClickSpark";
+import GoToTop from "@/components/GoToTop";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -51,9 +53,18 @@ export default function RootLayout({
         className={`${quicksand.variable} ${anton.variable} ${bebas.variable} ${bangers.variable} ${alkatra.variable} antialiased`}
       >
         <CustomCursor />
-        <SmoothScrolling>
-          {children}
-        </SmoothScrolling>
+        <ClickSpark
+          sparkColor='#fff'
+          sparkSize={10}
+          sparkRadius={15}
+          sparkCount={8}
+          duration={400}
+        >
+          <SmoothScrolling>
+            {children}
+          </SmoothScrolling>
+        </ClickSpark>
+        <GoToTop />
       </body>
     </html>
   );

@@ -25,44 +25,29 @@ export default function CustomCursor() {
     };
 
     // Add hover effect for clickable elements
-      const handleMouseOver = (e: MouseEvent) => {
+    const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      
-      // Theme Detection: Determine if we are hovering over a dark section
-      // Check against background colors or specific section IDs
-      const isDarkSection = target.closest('.bg-\\[\\#111\\], .bg-\\[\\#1a1008\\], .bg-\\[\\#0f0905\\], .bg-\\[\\#5d3a2f\\], .bg-\\[\\#2a1610\\], .bg-\\[\\#111111\\], .bg-\\[\\#0a0503\\], footer, #testimonials, #featured, #contact, .film-strip-inner, .design-image');
-      
-      if (isDarkSection) {
-        cursor.classList.add('on-dark');
-      } else {
-        cursor.classList.remove('on-dark');
-      }
 
-      if (
-        target.tagName.toLowerCase() === 'a' ||
-        target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.classList.contains('nav-link') ||
-        target.classList.contains('liquid-btn') ||
-        target.classList.contains('floating-icon')
-      ) {
+      const isLink = target.tagName.toLowerCase() === 'a' || target.closest('a');
+      const isButton = target.tagName.toLowerCase() === 'button' || target.closest('button');
+      const isNavLink = target.classList.contains('nav-link') || target.classList.contains('liquid-btn');
+      
+      // Exclude social app icons since they have their own huge hover state
+      const isAppIcon = target.closest('.social-icons');
+
+      if ((isLink || isButton || isNavLink) && !isAppIcon) {
         cursor.classList.add('hovering');
+      } else {
+        cursor.classList.remove('hovering');
       }
-    };
-
-    const handleMouseOut = () => {
-      cursor.classList.remove('hovering');
     };
 
     window.addEventListener("mousemove", moveCursor);
     document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
       document.removeEventListener("mouseover", handleMouseOver);
-      document.removeEventListener("mouseout", handleMouseOut);
     };
   }, []);
 

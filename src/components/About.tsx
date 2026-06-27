@@ -35,15 +35,15 @@ export default function About() {
             <p className="hidden md:flex flex-col items-center justify-center space-y-1">
               <span className="block whitespace-nowrap">HI, I&apos;M AJAY KUMAR,</span>
               <span className="block whitespace-nowrap">THE CREATIVE MIND BEHIND AIREN PIXEL.</span>
-              <span className="block whitespace-nowrap">I SPECIALIZE IN HIGH-QUALITY VIDEO EDITING,</span>
-              <span className="block whitespace-nowrap">MOTION GRAPHICS, PHOTO EDITING</span>
-              <span className="block whitespace-nowrap">AND CINEMATIC CONTENT THAT</span>
-              <span className="block whitespace-nowrap">HELPS CREATORS AND BRANDS CAPTURE ATTENTION</span>
-              <span className="block whitespace-nowrap">AND ENGAGE THEIR AUDIENCE.</span>
+              <span className="block whitespace-nowrap">I CREATE HIGH-QUALITY VIDEO EDITS,</span>
+              <span className="block whitespace-nowrap">MOTION GRAPHICS, AND CINEMATIC VISUALS</span>
+              <span className="block whitespace-nowrap">THAT HELP CREATORS AND BRANDS</span>
+              <span className="block whitespace-nowrap">CAPTURE ATTENTION AND BUILD</span>
+              <span className="block whitespace-nowrap">STRONGER AUDIENCE CONNECTIONS.</span>
             </p>
-            {/* Mobile natural wrapping */}
+            {/* Mobile/Tablet fluid text */}
             <p className="md:hidden px-4">
-              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I SPECIALIZE IN HIGH-QUALITY VIDEO EDITING, MOTION GRAPHICS, PHOTO EDITING AND CINEMATIC CONTENT THAT HELPS CREATORS AND BRANDS CAPTURE ATTENTION AND ENGAGE THEIR AUDIENCE.
+              HI, I&apos;M AJAY KUMAR, THE CREATIVE MIND BEHIND AIREN PIXEL. I CREATE HIGH-QUALITY VIDEO EDITS, MOTION GRAPHICS, AND CINEMATIC VISUALS THAT HELP CREATORS AND BRANDS CAPTURE ATTENTION AND BUILD STRONGER AUDIENCE CONNECTIONS.
             </p>
           </div>
 

@@ -14,9 +14,24 @@ const FilmRail = () => (
 );
 
 export default function Contact() {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    window.open('https://wa.me/919876543210?text=Hi%20Ajay,%20I%20want%20to%20hire%20you%20for%20a%20project.', '_blank');
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') || '';
+    const phone = formData.get('phone') || '';
+    const email = formData.get('email') || '';
+    const message = formData.get('message') || '';
+
+    const text = `*New Inquiry from Website:*
+*Name:* ${name}
+*Phone:* ${phone}
+*Email:* ${email}
+
+*Message:*
+${message}`;
+
+    const encodedText = encodeURIComponent(text);
+    window.open(`https://wa.me/919994805585?text=${encodedText}`, '_blank');
   };
 
   return (
@@ -43,22 +58,22 @@ export default function Contact() {
             </p>
             
             <div className="social-icons flex gap-4 md:gap-6 justify-center">
-              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+              <Link href="https://instagram.com/airen_pixelfx" target="_blank" rel="noopener noreferrer" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
                 <FiInstagram className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
               </Link>
-              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+              <Link href="https://wa.me/919994805585" target="_blank" rel="noopener noreferrer" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
                 <FaWhatsapp className="w-6 h-6 md:w-8 md:h-8 relative z-10" />
               </Link>
-              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+              <Link href="mailto:airenpixelfx@gmail.com" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
                 <FiMail className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
               </Link>
-              <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+              <Link href="tel:9994805585" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[3px] md:border-[4px] border-[#2a1610] bg-[#8c5946]/40 hover:bg-[#2a1610] flex items-center justify-center text-[#2a1610] hover:text-[#f7cdb5] transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
                 <FiPhoneCall className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
@@ -90,6 +105,7 @@ export default function Contact() {
                       <div className="input-group mb-5 md:mb-6">
                         <input 
                           type="text" 
+                          name="name"
                           placeholder="YOUR NAME" 
                           required 
                           className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
@@ -99,6 +115,7 @@ export default function Contact() {
                       <div className="input-group mb-5 md:mb-6">
                         <input 
                           type="tel" 
+                          name="phone"
                           placeholder="YOUR PHONE NUMBER" 
                           required 
                           className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
@@ -108,6 +125,7 @@ export default function Contact() {
                       <div className="input-group mb-6 md:mb-8">
                         <input 
                           type="email" 
+                          name="email"
                           placeholder="YOUR EMAIL" 
                           required 
                           className="w-full bg-transparent border-b-2 border-[#3d2118] py-2 font-alkatra text-sm md:text-base font-bold text-white outline-none placeholder:text-[#f9e2d2]/70 placeholder:font-bold placeholder:tracking-widest"
@@ -116,6 +134,7 @@ export default function Contact() {
                       
                       <div className="input-group mb-6">
                         <textarea 
+                          name="message"
                           placeholder="YOUR MESSAGE" 
                           rows={3} 
                           required 

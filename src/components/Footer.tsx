@@ -42,25 +42,25 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pb-6">
           {/* Social Icons (Matched to Contact Section but brightened for dark bg) */}
           <div className="social-icons flex gap-4 md:gap-6 relative -top-2 left-2 md:left-4">
-            <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+            <Link href="https://instagram.com/airen_pixelfx" target="_blank" rel="noopener noreferrer" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
               <FiInstagram className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
             </Link>
             
-            <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+            <Link href="https://wa.me/919994805585" target="_blank" rel="noopener noreferrer" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
               <FaWhatsapp className="w-6 h-6 md:w-8 md:h-8 relative z-10" />
             </Link>
             
-            <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+            <Link href="mailto:airenpixelfx@gmail.com" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
               <FiMail className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />
             </Link>
             
-            <Link href="#" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
+            <Link href="tel:9994805585" className="relative group w-12 h-12 md:w-16 md:h-16 rounded-full border-[2px] md:border-[3px] border-white/30 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transform transition-all hover:scale-110 shadow-[0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_2px_rgba(255,255,255,0.4),inset_0_-1px_2px_rgba(0,0,0,0.4)] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent h-[50%] pointer-events-none"></div>
               <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
               <FiPhoneCall className="w-6 h-6 md:w-8 md:h-8 relative z-10" strokeWidth={2.5} />

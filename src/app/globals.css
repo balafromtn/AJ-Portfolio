@@ -11,6 +11,7 @@
 .font-bangers {
   font-family: var(--font-bangers), sans-serif !important;
 }
+
 .font-alkatra {
   font-family: var(--font-alkatra), sans-serif !important;
 }
@@ -38,16 +39,23 @@ body {
   font-family: var(--font-family-body);
 }
 
+.bg-dotted {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
 * {
-  cursor: none !important; /* Hide default cursor everywhere, including links/buttons */
+  cursor: none !important;
+  /* Hide default cursor everywhere, including links/buttons */
 }
 
 /* Custom Cursor */
 .custom-cursor {
-  width: 20px;
-  height: 20px;
-  background-color: var(--dark-brown);
-  border: 2px solid var(--bg-color); 
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: none; 
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -55,17 +63,14 @@ body {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
   transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.custom-cursor.on-dark {
-  background-color: var(--dot-color);
-  border-color: var(--dark-brown);
-}
-
 .custom-cursor.hovering {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
+  background-color: #fff !important;
   border-color: transparent;
 }
 
@@ -74,28 +79,32 @@ body {
   position: relative;
   overflow: hidden;
   /* Faded #5c2626 background for the navbar as requested */
-  background: rgba(92, 38, 38, 0.4); 
+  background: rgba(92, 38, 38, 0.4);
   backdrop-filter: blur(40px) saturate(2);
   -webkit-backdrop-filter: blur(40px) saturate(2);
   /* Subtle outer border */
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.4), /* Soft drop shadow */
-      inset 0 1.5px 2px rgba(255, 255, 255, 0.35), /* Top edge light catch (specular highlight) */
-      inset 0 -1px 2px rgba(0, 0, 0, 0.3); /* Bottom edge shadow */
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    /* Soft drop shadow */
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.35),
+    /* Top edge light catch (specular highlight) */
+    inset 0 -1px 2px rgba(0, 0, 0, 0.3);
+  /* Bottom edge shadow */
 }
 
 /* Top gloss for navbar to match button */
 .glass-nav::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(
-      180deg,
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg,
       rgba(255, 255, 255, 0.25) 0%,
       rgba(255, 255, 255, 0.05) 35%,
-      rgba(255, 255, 255, 0) 50%
-  );
+      rgba(255, 255, 255, 0) 50%);
   border-radius: inherit;
   pointer-events: none;
   z-index: -1;
@@ -105,32 +114,51 @@ body {
 .glass-nav::after {
   content: '';
   position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-      120deg,
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
       transparent 0%,
       rgba(255, 255, 255, 0.3) 50%,
-      transparent 100%
-  );
+      transparent 100%);
   transition: left 0.8s ease;
   z-index: -1;
   pointer-events: none;
 }
+
 .glass-nav:hover::after {
   left: 100%;
 }
 
 /* Mild Waving Effect for Icons */
 @keyframes iconWave {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(3deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
 }
 
-.animate-wave-1 { animation: iconWave 5s ease-in-out infinite; }
-.animate-wave-2 { animation: iconWave 6.5s ease-in-out infinite 1s; }
-.animate-wave-3 { animation: iconWave 7s ease-in-out infinite 0.5s; }
-.animate-wave-4 { animation: iconWave 5.5s ease-in-out infinite 2s; }
+.animate-wave-1 {
+  animation: iconWave 5s ease-in-out infinite;
+}
+
+.animate-wave-2 {
+  animation: iconWave 6.5s ease-in-out infinite 1s;
+}
+
+.animate-wave-3 {
+  animation: iconWave 7s ease-in-out infinite 0.5s;
+}
+
+.animate-wave-4 {
+  animation: iconWave 5.5s ease-in-out infinite 2s;
+}
 
 .nav-link {
   font-family: var(--font-family-alkatra);
@@ -138,7 +166,7 @@ body {
   letter-spacing: 2px;
   color: white;
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link:hover {
@@ -166,23 +194,29 @@ body {
   backdrop-filter: blur(28px) saturate(2);
   -webkit-backdrop-filter: blur(28px) saturate(2);
   box-shadow:
-      0 8px 24px rgba(0, 0, 0, 0.3), /* Ambient shadow */
-      inset 0 1.5px 2px rgba(255, 255, 255, 0.4), /* Top edge rim light */
-      inset 0 -1.5px 2px rgba(0, 0, 0, 0.4); /* Bottom edge dark rim */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    /* Ambient shadow */
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.4),
+    /* Top edge rim light */
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.4);
+  /* Bottom edge dark rim */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 /* Glossy top shine — the Apple liquid glass highlight */
 .liquid-btn::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.25) 0%, /* Stronger white at top */
-      rgba(255, 255, 255, 0.05) 35%, /* Fades out quickly */
-      rgba(255, 255, 255, 0) 50%
-  );
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      /* Stronger white at top */
+      rgba(255, 255, 255, 0.05) 35%,
+      /* Fades out quickly */
+      rgba(255, 255, 255, 0) 50%);
   border-radius: inherit;
   pointer-events: none;
   z-index: 2;
@@ -196,23 +230,22 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-      120deg,
+  background: linear-gradient(120deg,
       transparent 0%,
       rgba(255, 255, 255, 0.3) 50%,
-      transparent 100%
-  );
+      transparent 100%);
   transition: left 0.6s ease;
   z-index: 1;
 }
 
 .liquid-btn:hover {
   transform: translateY(-2px) scale(1.03);
-  background: rgba(80, 45, 30, 0.3); /* Slightly brighter on hover */
+  background: rgba(80, 45, 30, 0.3);
+  /* Slightly brighter on hover */
   box-shadow:
-      0 12px 28px rgba(0, 0, 0, 0.45),
-      inset 0 2px 3px rgba(255, 255, 255, 0.5),
-      inset 0 -1px 2px rgba(0, 0, 0, 0.4);
+    0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 2px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .liquid-btn:hover::after {
@@ -222,8 +255,8 @@ body {
 .liquid-btn:active {
   transform: scale(0.97);
   box-shadow:
-      0 4px 12px rgba(0, 0, 0, 0.3),
-      inset 0 1px 4px rgba(0, 0, 0, 0.5);
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .glass-btn {
@@ -239,31 +272,40 @@ body {
   color: white;
 }
 
-.film-border::before, .film-border::after {
+.film-border::before,
+.film-border::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
   height: 10px;
-  background-image: repeating-linear-gradient(
-      to right,
+  background-image: repeating-linear-gradient(to right,
       rgba(247, 205, 181, 0.8) 0,
       rgba(247, 205, 181, 0.8) 12px,
       transparent 12px,
-      transparent 22px
-  );
+      transparent 22px);
 }
 
-.film-border::before { top: 3px; }
-.film-border::after { bottom: 3px; }
+.film-border::before {
+  top: 3px;
+}
+
+.film-border::after {
+  bottom: 3px;
+}
 
 .hero-watermark {
   -webkit-text-stroke: clamp(1.5px, 0.3vw, 3px) var(--dark-brown);
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-25%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-25%);
+  }
 }
 
 .animate-marquee {
@@ -276,7 +318,9 @@ body {
   background-color: #111;
   border-radius: 5px;
 }
-.film-border-frame::before, .film-border-frame::after {
+
+.film-border-frame::before,
+.film-border-frame::after {
   content: '';
   position: absolute;
   left: 0;
@@ -284,8 +328,14 @@ body {
   height: 10px;
   background-image: repeating-linear-gradient(to right, #f7cdb5 0, #f7cdb5 12px, transparent 12px, transparent 24px);
 }
-.film-border-frame::before { top: 5px; }
-.film-border-frame::after { bottom: 5px; }
+
+.film-border-frame::before {
+  top: 5px;
+}
+
+.film-border-frame::after {
+  bottom: 5px;
+}
 
 .film-border-frame-vertical {
   position: relative;
@@ -293,7 +343,9 @@ body {
   background-color: #111;
   border-radius: 5px;
 }
-.film-border-frame-vertical::before, .film-border-frame-vertical::after {
+
+.film-border-frame-vertical::before,
+.film-border-frame-vertical::after {
   content: '';
   position: absolute;
   top: 0;
@@ -301,15 +353,23 @@ body {
   width: 10px;
   background-image: repeating-linear-gradient(to bottom, #f7cdb5 0, #f7cdb5 12px, transparent 12px, transparent 24px);
 }
-.film-border-frame-vertical::before { left: 5px; }
-.film-border-frame-vertical::after { right: 5px; }
+
+.film-border-frame-vertical::before {
+  left: 5px;
+}
+
+.film-border-frame-vertical::after {
+  right: 5px;
+}
 
 /* Custom Film Strip specifically for the new Contact section design */
 .contact-film-strip {
   position: relative;
   background-color: #1a1008;
-  padding: 0 40px; /* Space for the black film rails on the left and right */
-  border-radius: 8px; /* Optional slight rounding on the outer edge */
+  padding: 0 40px;
+  /* Space for the black film rails on the left and right */
+  border-radius: 8px;
+  /* Optional slight rounding on the outer edge */
   overflow: hidden;
 }
 
@@ -320,14 +380,17 @@ body {
   top: 0;
   bottom: 0;
   width: 20px;
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 15px,
-    var(--bg-color) 15px,
-    var(--bg-color) 30px
-  );
+  background-image: repeating-linear-gradient(to bottom,
+      transparent 0px,
+      transparent 15px,
+      var(--bg-color) 15px,
+      var(--bg-color) 30px);
 }
 
-.contact-film-strip::before { left: 10px; }
-.contact-film-strip::after { right: 10px; }
+.contact-film-strip::before {
+  left: 10px;
+}
+
+.contact-film-strip::after {
+  right: 10px;
+}
