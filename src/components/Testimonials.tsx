@@ -30,7 +30,7 @@ export default function Testimonials() {
       gsap.set(card, { 
         rotation: tilts[i % tilts.length], 
         transformOrigin: "center center",
-        y: i === 0 ? 0 : "100vh" // First card is on screen, rest are below
+        y: "100vh" // All cards start below screen
       });
     });
 
@@ -44,26 +44,20 @@ export default function Testimonials() {
       }
     });
 
-    // Add an initial empty pause so the first card sits there for a beat
-    tl.to({}, { duration: 0.5 });
-
     // Sequence the cards coming up one by one
     cards.forEach((card, i) => {
-      if (i > 0) {
-        // Bring the new card up. The "+=0.5" adds a pause BEFORE this card arrives!
-        tl.to(card, { y: 0, ease: "none", duration: 1 }, "+=0.5");
-        
-        // Shrink all previous cards simultaneously using ABSOLUTE values
-        // Absolute values fix the bug where scrolling UP (backwards) corrupts the layout
-        for (let j = 0; j < i; j++) {
-          const shrinkSteps = i - j; // How many times has this card been pushed back?
-          tl.to(cards[j], { 
-            scale: 1 - (shrinkSteps * 0.03), 
-            y: -(shrinkSteps * 8), 
-            ease: "none", 
-            duration: 1 
-          }, "<"); // "<" means perfectly synchronized with the card coming up
-        }
+      // Bring the new card up. Pause before subsequent cards.
+      tl.to(card, { y: 0, ease: "none", duration: 1 }, i === 0 ? undefined : "+=0.5");
+      
+      // Shrink all previous cards simultaneously using ABSOLUTE values
+      for (let j = 0; j < i; j++) {
+        const shrinkSteps = i - j; // How many times has this card been pushed back?
+        tl.to(cards[j], { 
+          scale: 1 - (shrinkSteps * 0.03), 
+          y: -(shrinkSteps * 8), 
+          ease: "none", 
+          duration: 1 
+        }, "<"); // "<" means perfectly synchronized with the card coming up
       }
     });
 
@@ -88,7 +82,7 @@ export default function Testimonials() {
                     }}>
                     <span className="relative">
                       KIND
-                      <div className="absolute -left-[15%] md:-left-[20%] top-[10%] md:top-[15%] z-20 px-4 md:px-6 py-1 md:py-2 text-[0.8rem] md:text-xl lg:text-2xl font-black transform -rotate-[15deg] tracking-widest shadow-[4px_4px_0_rgba(0,0,0,0.2)] text-white leading-normal"
+                      <div className="absolute -left-[15%] md:-left-[20%] top-[25%] md:top-[30%] z-20 px-4 md:px-6 py-1 md:py-2 text-[0.8rem] md:text-xl lg:text-2xl font-black transform -rotate-[15deg] tracking-widest shadow-[4px_4px_0_rgba(0,0,0,0.2)] text-white leading-normal"
                            style={{ backgroundColor: 'var(--dark-brown, #5d3a2f)', WebkitTextStroke: '0px' }}>
                         TESTIMONIAL
                       </div>
