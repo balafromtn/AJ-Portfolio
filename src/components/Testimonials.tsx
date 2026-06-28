@@ -13,10 +13,26 @@ export default function Testimonials() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
-    { quote: "NICE WORK HIGHLY RECOMMENDED!", author: "CLIENT" },
-    { quote: "AMAZING EDITS, EXCEEDED MY EXPECTATIONS!", author: "CLIENT" },
-    { quote: "VERY PROFESSIONAL AND CREATIVE. WILL HIRE AGAIN!", author: "CLIENT" },
-    { quote: "OUTSTANDING VISUALS AND INCREDIBLE ATTENTION TO DETAIL!", author: "CLIENT" }
+    { 
+      quote: "The caption hooks completely changed how our reels performed. Clean edits, great pacing, and exactly what we needed.", 
+      author: "ARUN KUMAR",
+      role: "OWNER, SERVE BADMINTON ACADEMY"
+    },
+    { 
+      quote: "Our TV commercial looked professional and engaging. The final reel brought our products to life and impressed our customers.", 
+      author: "KARTHIK RAJ",
+      role: "OWNER, Sanyou TV MART"
+    },
+    { 
+      quote: "The motion graphics reel exceeded my expectations. It looked premium, grabbed attention instantly, and my audience absolutely loved it.", 
+      author: "ASHOK KUMAR",
+      role: "CONTENT CREATOR"
+    },
+    { 
+      quote: "The birthday photo design was beautifully crafted and loved by everyone. It made the celebration feel extra special.", 
+      author: "SURESH",
+      role: "CLIENT - BIRTHDAY GREETING DESIGN"
+    }
   ];
 
   useGSAP(() => {
@@ -80,14 +96,14 @@ export default function Testimonials() {
                       textShadow: '0 10px 30px rgba(0,0,0,0.05)',
                       fontSize: 'clamp(6rem, 20vw, 30rem)'
                     }}>
+                    <span>KIND</span>
                     <span className="relative">
-                      KIND
-                      <div className="absolute -left-[15%] md:-left-[20%] top-[25%] md:top-[30%] z-20 px-4 md:px-6 py-1 md:py-2 text-[0.8rem] md:text-xl lg:text-2xl font-black transform -rotate-[15deg] tracking-widest shadow-[4px_4px_0_rgba(0,0,0,0.2)] text-white leading-normal"
+                      <div className="absolute left-[10%] md:left-[15%] -top-[25%] md:-top-[30%] z-20 px-4 md:px-6 py-1 md:py-2 text-[0.8rem] md:text-xl lg:text-2xl font-black transform -rotate-[15deg] tracking-widest shadow-[4px_4px_0_rgba(0,0,0,0.2)] text-white leading-normal"
                            style={{ backgroundColor: 'var(--dark-brown, #5d3a2f)', WebkitTextStroke: '0px' }}>
                         TESTIMONIAL
                       </div>
+                      WORDS
                     </span>
-                    <span>WORDS</span>
                 </h1>
               </div>
             </div>
@@ -99,20 +115,23 @@ export default function Testimonials() {
                 {testimonials.map((t, i) => (
                   <div 
                       key={i} 
-                      className="testimonial-card absolute inset-0 w-full h-fit bg-white/90 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-10 md:p-14 border border-white/40"
+                      className="testimonial-card absolute inset-0 w-full h-fit bg-white/90 backdrop-blur-sm shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-10 md:p-14 border border-white/40 rounded-2xl"
                       style={{ zIndex: i + 10 }}
                   >
                       {/* Hollow Slanted Quotes Icon */}
                       <div className="absolute top-6 left-6 md:top-8 md:left-8 opacity-60">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--dark-brown, #5d3a2f)" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
+                        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--dark-brown, #5d3a2f)" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter">
                           <path d="M5 10 L10 10 L8 16 L3 16 Z M13 10 L18 10 L16 16 L11 16 Z" />
                         </svg>
                       </div>
                       
-                      <h2 className="text-center text-xl md:text-3xl lg:text-4xl font-black uppercase mt-8 mb-10 tracking-wide leading-tight" style={{ color: 'var(--dark-brown, #5d3a2f)' }}>
+                      <h2 className="text-center font-alkatra text-base md:text-xl lg:text-2xl font-medium uppercase mt-8 mb-10 tracking-wide leading-tight" style={{ color: 'var(--dark-brown, #5d3a2f)' }}>
                         {t.quote}
                       </h2>
-                      <p className="text-right font-bold text-sm md:text-lg uppercase tracking-wider" style={{ color: 'var(--dark-brown, #5d3a2f)' }}>~ {t.author}</p>
+                      <div className="text-right">
+                        <p className="font-black text-xs md:text-lg uppercase tracking-wider" style={{ color: 'var(--dark-brown, #5d3a2f)' }}>{t.author}</p>
+                        <p className="font-bold text-[0.60rem] md:text-[0.70rem] uppercase tracking-widest opacity-70 mt-1" style={{ color: 'var(--dark-brown, #5d3a2f)' }}>{t.role}</p>
+                      </div>
                   </div>
                 ))}
               </div>
