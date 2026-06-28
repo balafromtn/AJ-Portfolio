@@ -48,14 +48,23 @@ export default function FeaturedWorks() {
     });
 
     ScrollTrigger.create({
-      trigger: wrapper,
+      trigger: section,
       start: "top top",
       end: () => `+=${getScrollAmount() * -1}`,
-      pin: true,
+      pin: wrapper,
       animation: tween,
       scrub: 1,
       invalidateOnRefresh: true,
     });
+
+    // Fix for the background gap issue: force a refresh after components mount and media loads
+    const t1 = setTimeout(() => ScrollTrigger.refresh(), 500);
+    const t2 = setTimeout(() => ScrollTrigger.refresh(), 2000);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
 
   }, { scope: sectionRef });
 
@@ -74,17 +83,17 @@ export default function FeaturedWorks() {
 
   return (
     <section ref={sectionRef} className="featured-works-section bg-[var(--bg-color)] overflow-hidden relative" id="featured">
-      <div className="horizontal-scroll-wrapper relative w-full h-[100dvh] bg-black text-white overflow-hidden" ref={wrapperRef}>
-        
+      <div className="horizontal-scroll-wrapper relative w-full h-[100vh] bg-black text-white overflow-hidden" ref={wrapperRef}>
+
         {/* Global blurred timeline background inside wrapper so it scales correctly */}
         <div className="absolute inset-0 bg-cover bg-center opacity-30 blur-[5px]" style={{ backgroundImage: "url('/assets/time-line.png')" }}></div>
 
-        <div className="horizontal-scroll-content flex h-[100dvh] items-center w-max" ref={contentRef}>
+        <div className="horizontal-scroll-content flex h-[100vh] items-center w-max" ref={contentRef}>
 
           {/* Intro Title Panel */}
-          <div className="h-panel w-[100dvw] h-[100dvh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
+          <div className="h-panel w-[100vw] h-[100vh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
             <div className="featured-text-wrapper relative z-10 flex items-center justify-center">
-              <h2 
+              <h2
                 className="featured-title text-[5rem] md:text-[10rem] leading-none font-sans font-black text-white tracking-tight text-center"
                 style={{ WebkitTextStroke: '4px #5d3a2f' }}
               >
@@ -95,52 +104,52 @@ export default function FeaturedWorks() {
 
           {/* Reel Panels */}
           {/* Reel 1 */}
-          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-12 md:px-32">
+          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
             <div className="h-full flex items-center justify-center mr-4 md:mr-8">
-              <h3 
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0" 
+              <h3
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
                 style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
               >
                 TRENDING REEL
               </h3>
             </div>
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={0} />
               <video autoPlay loop muted={unmutedVideoIndex !== 0} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/trending-reel.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
-          
+
           {/* Reel 2 */}
-          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-12 md:px-32">
+          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
             <div className="h-full flex items-center justify-center mr-4 md:mr-8">
-              <h3 
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0" 
+              <h3
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
                 style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
               >
                 LYRICAL VIDEO
               </h3>
             </div>
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={1} />
-              <video autoPlay loop loop muted={unmutedVideoIndex !== 1} playsInline className="w-full h-full object-cover">
+              <video autoPlay loop muted={unmutedVideoIndex !== 1} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/love-motion.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
 
           {/* Reel 3 */}
-          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-12 md:px-32">
+          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
             <div className="h-full flex items-center justify-center mr-4 md:mr-8">
-              <h3 
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0" 
+              <h3
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
                 style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
               >
                 FUNNY VLOGS
               </h3>
             </div>
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={2} />
               <video autoPlay loop muted={unmutedVideoIndex !== 2} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/vlog.mp4" type="video/mp4" />
@@ -149,16 +158,16 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Reel 4 */}
-          <div className="h-panel w-auto h-[100dvh] flex items-center justify-center shrink-0 px-12 md:px-32 pr-24 md:pr-48">
+          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32 pr-24 md:pr-48">
             <div className="h-full flex items-center justify-center mr-4 md:mr-8">
-              <h3 
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0" 
+              <h3
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
                 style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
               >
                 MOTION GRAPHICS
               </h3>
             </div>
-            <div className="video-panel h-[100dvh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={3} />
               <video autoPlay loop muted={unmutedVideoIndex !== 3} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/motion-graphics.mp4" type="video/mp4" />

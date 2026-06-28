@@ -18,25 +18,24 @@ export default function Stats() {
     const numbers = containerRef.current.querySelectorAll('.stat-number');
     
     numbers.forEach(num => {
-      ScrollTrigger.create({
-        trigger: num,
-        start: "top 85%",
-        onEnter: () => {
-          const target = parseInt(num.getAttribute('data-target') || "0");
-          const counter = { val: 0 };
-          
-          gsap.to(counter, {
-            val: target,
-            duration: 2,
-            ease: "power2.out",
-            onUpdate: () => {
-              if (num) {
-                num.textContent = Math.round(counter.val).toString();
-              }
-            }
-          });
+      const target = parseInt(num.getAttribute('data-target') || "0");
+      const counter = { val: 0 };
+      
+      gsap.to(counter, {
+        val: target,
+        duration: 2,
+        ease: "power2.out",
+        onUpdate: () => {
+          if (num) {
+            num.textContent = Math.round(counter.val).toString();
+          }
         },
-        once: true
+        scrollTrigger: {
+          trigger: num,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "restart reset restart reset"
+        }
       });
     });
   }, { scope: containerRef });
