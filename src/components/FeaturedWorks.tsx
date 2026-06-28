@@ -22,49 +22,78 @@ export default function FeaturedWorks() {
     const content = contentRef.current;
     const section = sectionRef.current;
 
-    // Entrance Transition (Scale Up)
-    gsap.fromTo(wrapper,
-      { scale: 0.85, borderRadius: "3rem" },
-      {
-        scale: 1,
-        borderRadius: "0rem",
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom", // Start when top of section hits bottom of screen
-          end: "top top",      // End when it pins at the top
-          scrub: 1,
+    let mm = gsap.matchMedia();
+
+    // Desktop & Tablet (min-width: 768px): Horizontal Scroll
+    mm.add("(min-width: 768px)", () => {
+      // Entrance Transition (Scale Up)
+      gsap.fromTo(wrapper,
+        { scale: 0.85, borderRadius: "3rem" },
+        {
+          scale: 1,
+          borderRadius: "0rem",
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "top top",
+            scrub: 1,
+          }
         }
-      }
-    );
+      );
 
-    const getScrollAmount = () => {
-      return -(content.scrollWidth - window.innerWidth);
-    };
+      const getScrollAmount = () => {
+        return -(content.scrollWidth - window.innerWidth);
+      };
 
-    const tween = gsap.to(content, {
-      x: getScrollAmount,
-      ease: "none"
+      const tween = gsap.to(content, {
+        x: getScrollAmount,
+        ease: "none"
+      });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `+=${getScrollAmount() * -1}`,
+        pin: wrapper,
+        animation: tween,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      });
+
+      const t1 = setTimeout(() => ScrollTrigger.refresh(), 500);
+      const t2 = setTimeout(() => ScrollTrigger.refresh(), 2000);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
     });
 
-    ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: () => `+=${getScrollAmount() * -1}`,
-      pin: wrapper,
-      animation: tween,
-      scrub: 1,
-      invalidateOnRefresh: true,
+    // Mobile (max-width: 767px): Vertical Scroll (No Pinning)
+    mm.add("(max-width: 767px)", () => {
+       // Simple fade-up for elements as user scrolls down naturally
+       const panels = gsap.utils.toArray('.h-panel');
+       panels.forEach((panel: any) => {
+         gsap.fromTo(panel, 
+           { opacity: 0, y: 50 },
+           { 
+             opacity: 1, 
+             y: 0, 
+             duration: 1, 
+             ease: "power3.out",
+             scrollTrigger: {
+               trigger: panel,
+               start: "top 80%",
+               toggleActions: "play none none reverse"
+             }
+           }
+         );
+       });
+       return () => {};
     });
 
-    // Fix for the background gap issue: force a refresh after components mount and media loads
-    const t1 = setTimeout(() => ScrollTrigger.refresh(), 500);
-    const t2 = setTimeout(() => ScrollTrigger.refresh(), 2000);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
+    return () => mm.revert();
 
   }, { scope: sectionRef });
 
@@ -83,15 +112,15 @@ export default function FeaturedWorks() {
 
   return (
     <section ref={sectionRef} className="featured-works-section bg-[var(--bg-color)] overflow-hidden relative" id="featured">
-      <div className="horizontal-scroll-wrapper relative w-full h-[100vh] bg-black text-white overflow-hidden" ref={wrapperRef}>
+      <div className="horizontal-scroll-wrapper relative w-full h-auto md:h-[100vh] bg-black text-white overflow-hidden" ref={wrapperRef}>
 
         {/* Global blurred timeline background inside wrapper so it scales correctly */}
         <div className="absolute inset-0 bg-cover bg-center opacity-30 blur-[5px]" style={{ backgroundImage: "url('/assets/time-line.png')" }}></div>
 
-        <div className="horizontal-scroll-content flex h-[100vh] items-center w-max" ref={contentRef}>
+        <div className="horizontal-scroll-content flex flex-col md:flex-row h-auto md:h-[100vh] items-center w-full md:w-max py-20 md:py-0" ref={contentRef}>
 
           {/* Intro Title Panel */}
-          <div className="h-panel w-[100vw] h-[100vh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden">
+          <div className="h-panel w-full h-auto md:h-[100vh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden mb-12 md:mb-0 py-10 md:py-0" style={{ width: '100vw' }}>
             <div className="featured-text-wrapper relative z-10 flex items-center justify-center">
               <h2
                 className="featured-title text-[5rem] md:text-[10rem] leading-none font-sans font-black text-white tracking-tight text-center"
@@ -104,16 +133,15 @@ export default function FeaturedWorks() {
 
           {/* Reel Panels */}
           {/* Reel 1 */}
-          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
-            <div className="h-full flex items-center justify-center mr-4 md:mr-8">
+          <div className="h-panel w-full md:w-auto h-auto md:h-[100vh] flex flex-col md:flex-row items-center justify-center shrink-0 px-6 md:px-32 mb-20 md:mb-0">
+            <div className="md:h-full flex items-center justify-center mb-4 md:mb-0 md:mr-8">
               <h3
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
               >
                 TRENDING REEL
               </h3>
             </div>
-            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-auto md:h-[100vh] aspect-[9/16] w-full max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={0} />
               <video autoPlay loop muted={unmutedVideoIndex !== 0} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/trending-reel.mp4" type="video/mp4" />
@@ -122,16 +150,15 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Reel 2 */}
-          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
-            <div className="h-full flex items-center justify-center mr-4 md:mr-8">
+          <div className="h-panel w-full md:w-auto h-auto md:h-[100vh] flex flex-col md:flex-row items-center justify-center shrink-0 px-6 md:px-32 mb-20 md:mb-0">
+            <div className="md:h-full flex items-center justify-center mb-4 md:mb-0 md:mr-8">
               <h3
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
               >
                 LYRICAL VIDEO
               </h3>
             </div>
-            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-auto md:h-[100vh] aspect-[9/16] w-full max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={1} />
               <video autoPlay loop muted={unmutedVideoIndex !== 1} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/love-motion.mp4" type="video/mp4" />
@@ -140,16 +167,15 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Reel 3 */}
-          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32">
-            <div className="h-full flex items-center justify-center mr-4 md:mr-8">
+          <div className="h-panel w-full md:w-auto h-auto md:h-[100vh] flex flex-col md:flex-row items-center justify-center shrink-0 px-6 md:px-32 mb-20 md:mb-0">
+            <div className="md:h-full flex items-center justify-center mb-4 md:mb-0 md:mr-8">
               <h3
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
               >
                 FUNNY VLOGS
               </h3>
             </div>
-            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-auto md:h-[100vh] aspect-[9/16] w-full max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={2} />
               <video autoPlay loop muted={unmutedVideoIndex !== 2} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/vlog.mp4" type="video/mp4" />
@@ -158,16 +184,15 @@ export default function FeaturedWorks() {
           </div>
 
           {/* Reel 4 */}
-          <div className="h-panel w-auto h-[100vh] flex items-center justify-center shrink-0 px-12 md:px-32 pr-24 md:pr-48">
-            <div className="h-full flex items-center justify-center mr-4 md:mr-8">
+          <div className="h-panel w-full md:w-auto h-auto md:h-[100vh] flex flex-col md:flex-row items-center justify-center shrink-0 px-6 md:px-32 pr-6 md:pr-48">
+            <div className="md:h-full flex items-center justify-center mb-4 md:mb-0 md:mr-8">
               <h3
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0"
-                style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
               >
                 MOTION GRAPHICS
               </h3>
             </div>
-            <div className="video-panel h-[100vh] aspect-[9/16] max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
+            <div className="video-panel h-auto md:h-[100vh] aspect-[9/16] w-full max-w-[85vw] md:max-w-[70vw] film-border-frame-vertical rounded-none overflow-hidden relative px-3 md:px-5 py-0 bg-[#111]">
               <VolumeButton index={3} />
               <video autoPlay loop muted={unmutedVideoIndex !== 3} playsInline className="w-full h-full object-cover">
                 <source src="/assets/videos/motion-graphics.mp4" type="video/mp4" />

@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 }
 
 export default function SmoothScrolling({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef(null);
+  const lenisRef = useRef<any>(null);
 
   useEffect(() => {
     function update(time: number) {

@@ -14,7 +14,7 @@ export default function Showreel() {
   const containerRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
-    const items = gsap.utils.toArray('.design-item');
+    const items = gsap.utils.toArray('.design-item') as HTMLElement[];
     
     items.forEach((item: any, i) => {
       // Don't animate the last item scaling down
@@ -69,10 +69,10 @@ export default function Showreel() {
                 </video>
               </div>
             </div>
-            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">01 / FAST CUT</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">MOMENTS MADE<br/>LEGENDARY</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">CINEMATIC STORYTELLING AND IMPACTFUL EDITS THAT TURN HIGHLIGHTS INTO UNFORGETTABLE MEMORIES.</p>
+            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">01 / FAST CUT</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">MOMENTS MADE<br/>LEGENDARY</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">CINEMATIC STORYTELLING AND IMPACTFUL EDITS THAT TURN HIGHLIGHTS INTO UNFORGETTABLE MEMORIES.</p>
             </div>
           </div>
         </div>
@@ -80,10 +80,10 @@ export default function Showreel() {
         {/* ITEM 2 */}
         <div className="design-item sticky top-0 h-[100dvh] w-full flex items-center justify-center bg-transparent z-20 origin-top">
           <div className="container mx-auto px-6 md:px-12 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
-            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 md:order-1 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">02 / PODCAST CAPTIONS</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">ENGAGE & RETAIN</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">DYNAMIC CAPTIONS AND ENGAGING VISUAL HOOKS DESIGNED TO MAXIMIZE AUDIENCE RETENTION IN PODCASTS AND REELS THROUGH SEAMLESS STORYTELLING, PRECISE EDITING.</p>
+            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 md:order-1 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">02 / PODCAST CAPTIONS</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">ENGAGE & RETAIN</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">DYNAMIC CAPTIONS AND ENGAGING VISUAL HOOKS DESIGNED TO MAXIMIZE AUDIENCE RETENTION IN PODCASTS AND REELS THROUGH SEAMLESS STORYTELLING, PRECISE EDITING.</p>
             </div>
             <div className="design-image w-full md:w-[40%] lg:w-[35%] order-1 md:order-2 rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame p-3 md:p-5 bg-[#111] transform rotate-3 hover:rotate-0 transition-all duration-500 ease-out cursor-pointer hover:scale-105 shrink-0 mx-auto md:mx-0">
               <div className="relative w-full overflow-hidden">
@@ -107,10 +107,10 @@ export default function Showreel() {
                 </video>
               </div>
             </div>
-            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">03 / TRENDING MOTION</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">TRENDING VISUALS</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">EYE-CATCHING MOTION GRAPHICS AND SEAMLESS ANIMATIONS THAT ELEVATE YOUR CONTENT TO THE NEXT LEVEL.</p>
+            <div className="design-text w-full md:w-[48%] lg:w-[52%] order-2 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">03 / TRENDING MOTION</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">TRENDING VISUALS</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">EYE-CATCHING MOTION GRAPHICS AND SEAMLESS ANIMATIONS THAT ELEVATE YOUR CONTENT TO THE NEXT LEVEL.</p>
             </div>
           </div>
         </div>

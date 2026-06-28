@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Marquee from "./Marquee";
 
 const FilmRail = () => (
-  <div className="w-[30px] md:w-[45px] shrink-0 self-stretch z-10 relative" style={{
+  <div className="hidden md:block w-[45px] shrink-0 self-stretch z-10 relative" style={{
     backgroundImage: `url("data:image/svg+xml;charset=utf-8,%3Csvg width='45' height='35' viewBox='0 0 45 35' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cmask id='holeMask'%3E%3Crect width='45' height='35' fill='white' /%3E%3Crect x='10' y='8' width='25' height='19' rx='4' fill='black' /%3E%3C/mask%3E%3C/defs%3E%3Crect width='45' height='35' fill='%230f0905' mask='url(%23holeMask)' /%3E%3C/svg%3E")`,
     backgroundSize: '100% 35px',
     backgroundRepeat: 'repeat-y'
@@ -89,13 +89,13 @@ ${message}`;
               <FilmRail />
               
               {/* Center Content Section */}
-              <div className="flex flex-col w-full bg-[#5b3527] relative">
+              <div className="flex flex-col w-full bg-[#5b3527] relative rounded-3xl md:rounded-none overflow-hidden border-[3px] border-[#2a1610] md:border-none shadow-2xl md:shadow-none">
                 
                 {/* 1. Top empty filler - 62px aligns to 2 tiles */}
-                <div className="w-full h-[62px] shrink-0 relative z-10"></div>
+                <div className="w-full h-[30px] md:h-[62px] shrink-0 relative z-10"></div>
                 
                 {/* Black bar 1 */}
-                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
+                <div className="hidden md:block w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
                 
                 {/* 2. Contact form wrapper - 544px aligns to exactly 18 tiles! */}
                 <div className="w-full flex items-center justify-center h-[544px] shrink-0 relative z-10">
@@ -155,10 +155,10 @@ ${message}`;
                 </div>
 
                 {/* Black bar 2 */}
-                <div className="w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
+                <div className="hidden md:block w-full h-[16px] bg-[#0f0905] shrink-0 relative z-10"></div>
                 
                 {/* Bottom empty filler - 62px aligns to 2 tiles, mirroring the top */}
-                <div className="w-full h-[62px] shrink-0 relative z-10"></div>
+                <div className="w-full h-[30px] md:h-[62px] shrink-0 relative z-10"></div>
               </div>
 
               {/* Right Film Rail */}

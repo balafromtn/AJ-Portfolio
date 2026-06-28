@@ -32,7 +32,7 @@ export default function Footer() {
             <p className="text-lg md:text-xl font-medium max-w-[420px] leading-relaxed tracking-wide text-white font-sans">
               Every Project Starts With An Idea.<br className="hidden md:block"/> Let&apos;s Turn Yours Into Something<br className="hidden md:block"/> Memorable, Impactful, And Worth Sharing.
             </p>
-            <Link href="#contact" className="liquid-btn !rounded-[16px] !bg-white/5 hover:!bg-white/10 !border-white/10 font-alkatra font-bold tracking-widest text-white text-base md:text-lg">
+            <Link href="#contact" className="liquid-btn !rounded-[16px] !bg-white/5 hover:!bg-white/10 !border-white/10 font-alkatra font-bold tracking-widest text-white text-base md:text-lg text-center">
               LET&apos;S WORK TOGETHER
             </Link>
           </div>

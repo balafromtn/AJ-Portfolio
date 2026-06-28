@@ -41,7 +41,7 @@ export default function Stats() {
   }, { scope: containerRef });
 
   return (
-    <section className="stats-testimonial-section py-20 md:py-24 bg-[#111] text-white relative" id="testimonials">
+    <section className="stats-testimonial-section py-20 md:py-24 bg-[#111] text-white relative overflow-hidden" id="testimonials">
       {/* Static Top Single Reel Stripe */}
       <div className="absolute top-0 left-0 w-full bg-[#1a1008] h-[18px] z-20 shadow-md">
         <div className="absolute inset-x-0 top-[4px] h-[10px] w-full" style={{ backgroundImage: 'repeating-linear-gradient(to right, rgba(247, 205, 181, 0.8) 0, rgba(247, 205, 181, 0.8) 12px, transparent 12px, transparent 22px)' }}></div>

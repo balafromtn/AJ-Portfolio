@@ -78,7 +78,7 @@ export default function About() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="about-section py-20 relative" id="about">
+    <section ref={containerRef} className="about-section py-20 relative overflow-hidden" id="about">
       {/* Top Centered ABOUT ME Badge */}
       <div className="container mx-auto px-6 flex justify-center mb-16 relative z-10">
         <h2 className="inline-block bg-[#5d3a2f] text-white px-8 md:px-12 py-2 text-4xl md:text-5xl font-bangers transform -rotate-2 shadow-[6px_6px_0_rgba(0,0,0,0.2)] tracking-widest">

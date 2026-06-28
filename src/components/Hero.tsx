@@ -156,12 +156,12 @@ export default function Hero() {
   };
 
   return (
-    <header className="hero-section relative w-full flex flex-col justify-center items-center pt-2 md:pt-4 pb-0" id="home" ref={containerRef}>
+    <header className="hero-section overflow-hidden relative w-full flex flex-col justify-center items-center pt-2 md:pt-4 pb-0" id="home" ref={containerRef}>
       <Navbar />
 
       <div className="hero-content relative z-10 flex flex-col items-center mt-0 justify-center w-full">
         {/* Image Wrapper - scale responsively based on viewport height, carefully bounded so it doesn't clip */}
-        <div className="hero-image-wrapper relative w-[95vw] sm:w-[85vw] md:w-auto h-auto md:h-[92vh] max-w-[650px] md:max-w-none max-h-[1050px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
+        <div className="hero-image-wrapper relative w-[90vw] sm:w-[85vw] md:w-auto h-auto md:h-[92vh] max-w-[650px] md:max-w-none max-h-[1050px] aspect-[560/720] mx-auto z-10 mt-4 md:mt-8 mb-0">
           
           {/* Large crisp translucent brown circle behind everything */}
           <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75vw] h-[75vw] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] rounded-full bg-[#8c5946]/15 z-[-1] pointer-events-none"></div>
@@ -192,7 +192,7 @@ export default function Hero() {
           />
 
           {/* Picsart - top right */}
-          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[55px] h-[55px] md:w-[75px] md:h-[75px] top-[30%] md:top-[35%] -right-[5%] md:-right-[10%] flex items-center justify-center">
+          <div ref={setIconFloatRef(0)} className="absolute z-30 w-[55px] h-[55px] md:w-[75px] md:h-[75px] top-[30%] md:top-[35%] right-0 md:-right-[10%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-1">
               <img
                 ref={setIconHoverRef(0)}
@@ -206,7 +206,7 @@ export default function Hero() {
           </div>
           
           {/* CapCut - bottom left */}
-          <div ref={setIconFloatRef(1)} className="absolute z-30 w-[90px] h-[90px] md:w-[120px] md:h-[120px] top-[55%] -left-[20%] flex items-center justify-center">
+          <div ref={setIconFloatRef(1)} className="absolute z-30 w-[90px] h-[90px] md:w-[120px] md:h-[120px] top-[55%] left-0 md:-left-[20%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-2">
               <img
                 ref={setIconHoverRef(1)}
@@ -220,7 +220,7 @@ export default function Hero() {
           </div>
 
           {/* Alight Motion - bottom right */}
-          <div ref={setIconFloatRef(2)} className="absolute z-30 w-[120px] h-[120px] md:w-[160px] md:h-[160px] top-[60%] -right-[20%] md:-right-[25%] flex items-center justify-center">
+          <div ref={setIconFloatRef(2)} className="absolute z-30 w-[120px] h-[120px] md:w-[160px] md:h-[160px] top-[60%] right-[-5%] md:-right-[25%] flex items-center justify-center">
             <div className="w-full h-full animate-wave-3">
               <img
                 key="alight-motion-rebind"
@@ -236,10 +236,10 @@ export default function Hero() {
           
           {/* CTA Buttons - positioned tightly to the image wrapper */}
           <div className="hero-cta absolute bottom-[6%] md:bottom-[8%] left-1/2 -translate-x-1/2 flex gap-4 md:gap-8 z-30 w-max">
-            <Link href="#works" className="liquid-btn glass-btn font-alkatra !font-bold">
+            <Link href="#works" className="liquid-btn glass-btn font-alkatra !font-bold !text-[0.9rem] !px-6 !py-3 md:!text-[1.25rem] md:!px-[2.8rem] md:!py-[0.9rem]">
               SHOWREEL
             </Link>
-            <Link href="#contact" className="liquid-btn glass-btn font-alkatra !font-bold">
+            <Link href="#contact" className="liquid-btn glass-btn font-alkatra !font-bold !text-[0.9rem] !px-6 !py-3 md:!text-[1.25rem] md:!px-[2.8rem] md:!py-[0.9rem]">
               HIRE ME
             </Link>
           </div>

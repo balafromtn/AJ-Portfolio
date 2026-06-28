@@ -1,12 +1,13 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 
 export default function Services() {
   const services = [
-    "VIDEO EDITING",
-    "MOTION GRAPHICS",
-    "PHOTO EDITING"
+    { title: "VIDEO EDITING", href: "/showcase#video-editing" },
+    { title: "MOTION GRAPHICS", href: "/showcase#motion-graphics" },
+    { title: "PHOTO EDITING", href: "/showcase#photo-editing" }
   ];
 
   return (
@@ -33,9 +34,10 @@ export default function Services() {
           
           <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 md:gap-8 w-full">
             {services.map((service, index) => (
-              <div 
+              <Link 
+                href={service.href}
                 key={index} 
-                className="relative group bg-[#dca385]/90 backdrop-blur-md px-8 py-3 md:px-12 md:py-4 rounded-full border-[2px] border-white/20 hover:border-white/40 hover:bg-[#dca385] hover:-translate-y-1 transition-all duration-300 cursor-default shadow-[0_8px_16px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.3)] overflow-hidden"
+                className="relative group bg-[#dca385]/90 backdrop-blur-md px-8 py-3 md:px-12 md:py-4 rounded-full border-[2px] border-white/20 hover:border-white/40 hover:bg-[#dca385] hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-[0_8px_16px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(255,255,255,0.4),inset_0_-2px_4px_rgba(0,0,0,0.3)] overflow-hidden"
               >
                 {/* Glossy Top Highlight */}
                 <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/10 to-transparent h-[50%] pointer-events-none rounded-t-full"></div>
@@ -43,9 +45,9 @@ export default function Services() {
                 <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:left-[100%] transition-all duration-700 ease-in-out pointer-events-none"></div>
                 
                 <span className="relative z-10 text-[#2a1610] font-alkatra font-bold tracking-widest text-lg md:text-xl lg:text-2xl drop-shadow-sm">
-                  {service}
+                  {service.title}
                 </span>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

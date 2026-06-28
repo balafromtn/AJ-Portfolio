@@ -70,10 +70,10 @@ export default function PhotoDesigns() {
                 </div>
               </div>
             </div>
-            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">01 / Thumbnails</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Designed To<br/>Get Clicks</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Attention-grabbing thumbnails and social media creatives built to stand out instantly in a crowded feed.</p>
+            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">01 / Thumbnails</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">Designed To<br/>Get Clicks</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Attention-grabbing thumbnails and social media creatives built to stand out instantly in a crowded feed.</p>
             </div>
           </div>
         </div>
@@ -81,10 +81,10 @@ export default function PhotoDesigns() {
         {/* ITEM 2 */}
         <div className="design-item sticky top-0 h-[100dvh] w-full flex items-center justify-center bg-transparent z-20 origin-top">
           <div className="container mx-auto px-6 md:px-12 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
-            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 md:order-1 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">02 / Compositions</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">Stories Told<br/>Through Design</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Large-scale visual compositions beautifully crafted to showcase people, achievements, and memorable moments.</p>
+            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 md:order-1 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">02 / Compositions</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">Stories Told<br/>Through Design</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Large-scale visual compositions beautifully crafted to showcase people, achievements, and memorable moments.</p>
             </div>
             <div className="design-image-wrapper w-full md:w-[45%] lg:w-[40%] order-1 md:order-2 shrink-0">
               <div className="design-image w-full rounded-lg overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] group z-0 film-border-frame-vertical p-3 md:p-5 bg-[#111] transform rotate-6 hover:rotate-0 transition-all duration-500 ease-out cursor-pointer hover:scale-105">
@@ -106,10 +106,10 @@ export default function PhotoDesigns() {
                 </div>
               </div>
             </div>
-            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 bg-white/80 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0">
-              <div className="text-[#5d3a2f] font-black text-sm uppercase tracking-widest mb-4">03 / Posters</div>
-              <h3 className="text-3xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-4">More Than Just<br/>A Greeting</h3>
-              <p className="text-base md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Custom-designed posters that turn special occasions into breathtaking, premium visual experiences.</p>
+            <div className="design-text w-full md:w-[45%] lg:w-[50%] order-2 bg-white/80 backdrop-blur-md p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-white/40 z-10 transition-transform duration-500 hover:-translate-y-2 shrink-0 mt-4 md:mt-0">
+              <div className="text-[#5d3a2f] font-black text-xs md:text-sm uppercase tracking-widest mb-2 md:mb-4">03 / Posters</div>
+              <h3 className="text-2xl md:text-5xl font-black text-[#5d3a2f] uppercase leading-tight mb-2 md:mb-4">More Than Just<br/>A Greeting</h3>
+              <p className="text-sm md:text-lg font-bold text-gray-700 leading-relaxed uppercase">Custom-designed posters that turn special occasions into breathtaking, premium visual experiences.</p>
             </div>
           </div>
         </div>
