@@ -94,12 +94,12 @@ export default function About() {
           <div className="about-circle absolute w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] bg-[#d59a7a]/40 rounded-full -z-10 origin-center"></div>
 
           {/* APFX Logo */}
-          <div className="about-logo relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] origin-center">
+          <div className="about-logo group relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] origin-center cursor-pointer">
             <Image
               src="/assets/APFXLogo.png"
               alt="APFX Logo"
               fill
-              className="object-contain drop-shadow-xl"
+              className="object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500 ease-out"
             />
           </div>
         </div>

@@ -43,6 +43,12 @@ export default function FeaturedWorks() {
       );
 
       const getScrollAmount = () => {
+        const panels = gsap.utils.toArray('.h-panel') as HTMLElement[];
+        const lastPanel = panels[panels.length - 1];
+        if (lastPanel) {
+          const scrollAmount = lastPanel.offsetLeft + (lastPanel.offsetWidth / 2) - (window.innerWidth / 2);
+          return -Math.max(0, scrollAmount); // Ensure it doesn't scroll backwards if window is huge
+        }
         return -(content.scrollWidth - window.innerWidth);
       };
 

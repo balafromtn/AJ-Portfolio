@@ -15,13 +15,13 @@ export default function Testimonials() {
   const testimonials = [
     { 
       quote: "The caption hooks completely changed how our reels performed. Clean edits, great pacing, and exactly what we needed.", 
-      author: "ARUN KUMAR",
-      role: "OWNER, SERVE BADMINTON ACADEMY"
+      author: "SATHISH",
+      role: "MANAGER, SERVE BADMINTON ACADEMY"
     },
     { 
-      quote: "Our TV commercial looked professional and engaging. The final reel brought our products to life and impressed our customers.", 
-      author: "KARTHIK RAJ",
-      role: "OWNER, Sanyou TV MART"
+      quote: "I covered a promotion at Sanyou TV Mart and handed over all the clips for editing. The final reel came out polished, energetic, and exactly the way I wanted. I was really satisfied with the result.", 
+      author: "PAUL",
+      role: "INFLUENCER @SALEM_ATTUR_360"
     },
     { 
       quote: "The motion graphics reel exceeded my expectations. It looked premium, grabbed attention instantly, and my audience absolutely loved it.", 
