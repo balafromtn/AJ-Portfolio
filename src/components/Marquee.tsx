@@ -18,7 +18,7 @@ export default function Marquee() {
                   <span className="pr-10">•</span>
                   <span className="pr-10">MOTION GRAPHICS</span>
                   <span className="pr-10">•</span>
-                  <span className="pr-10">POSTER DESIGNING</span>
+                  <span className="pr-10">PHOTO DESIGNING</span>
                 </React.Fragment>
               ))}
             </div>

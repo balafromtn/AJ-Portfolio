@@ -129,7 +129,7 @@ export default function FeaturedWorks() {
           <div className="h-panel w-full h-auto md:h-[100vh] flex items-center justify-center p-8 shrink-0 relative overflow-hidden mb-12 md:mb-0 py-10 md:py-0" style={{ width: '100vw' }}>
             <div className="featured-text-wrapper relative z-10 flex items-center justify-center">
               <h2
-                className="featured-title text-[5rem] md:text-[10rem] leading-none font-sans font-black text-white tracking-tight text-center"
+                className="featured-title text-6xl sm:text-7xl md:text-[10rem] leading-none font-sans font-black text-white tracking-tight text-center"
                 style={{ WebkitTextStroke: '4px #5d3a2f' }}
               >
                 FEATURED<br />WORKS
@@ -142,7 +142,7 @@ export default function FeaturedWorks() {
           <div className="h-panel w-full md:w-auto h-auto md:h-[100vh] flex flex-col md:flex-row items-center justify-center shrink-0 px-6 md:px-32 mb-20 md:mb-0">
             <div className="md:h-full flex items-center justify-center mb-4 md:mb-0 md:mr-8">
               <h3
-                className="text-3xl md:text-5xl font-sans font-black tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
+                className="text-2xl md:text-5xl text-center w-full font-sans font-black tracking-[0.2em] md:tracking-[0.3em] text-[var(--bg-color)] opacity-60 uppercase m-0 md:rotate-180 md:[writing-mode:vertical-rl]"
               >
                 TRENDING REEL
               </h3>
